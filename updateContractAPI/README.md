@@ -31,4 +31,5 @@
 
 -	Later, **ABHISHEK** can run **ipfs_conn.py** which will serialize the local updates from each agent and add it to the IPFS, generate hashes, and store those hashes on the blockchain. 
 -	At the end, there will be a HASHMAP (mapping) stored on the blockchain which will contain the AGENT ADDRESSES as the key, and the IPFS HASHES generated for their data as a VALUE. 
--	The data structure can be used to query and use the data for further hypersphere-based classification model. 
+-	The data structure can be used to query and use the data for further hypersphere-based classification model. (These updates can be received back as PYTHON LISTS using **api.get_pyobj(HASH)**. The HASH value for each agent will be found from the mapping stored on smart contract.)
+ 
