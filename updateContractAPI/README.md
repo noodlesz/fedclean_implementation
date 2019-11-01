@@ -1,12 +1,12 @@
-#### Author: Vivek Khimani
-#### Contact: +12673049080
-#### Purpose: Interaction with CollectUpdatesContract (Federated Learning Research Paper)
+**Author:** Vivek Khimani
+**Contact:** +12673049080
+**Purpose:** Interaction with CollectUpdatesContract (Federated Learning Research Paper)
 -------
 
-1) INSTALLATIONS REQUIRED: 
-	a) web3 - "pip install web3"
-	b) ipfs-api - "pip install ipfs-api"
-	c) local ipfs installation - "https://docs.ipfs.io/guides/guides/install/"
+##INSTALLATIONS REQUIRED: 
+-	web3 - "pip install web3"
+-	ipfs-api - "pip install ipfs-api"
+-	local ipfs installation - "https://docs.ipfs.io/guides/guides/install/"
 
 
 
