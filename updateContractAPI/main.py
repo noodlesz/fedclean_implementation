@@ -1,6 +1,10 @@
 from web3 import Web3
 from DeployContract import contract_instance,w3,contract_address,contract_private_key
 from all_clients import all_clients
+from whitelisted import whitelisted
+
+#FIXME: Adding whitelisted agents array to SMART CONTRACT and storing their hashes.
+#FIXME: Event Filters and Listeners as and when the updates are received. 
 
 w3.eth.defaultAccount = contract_instance.address
 
@@ -53,4 +57,4 @@ if __name__ == '__main__':
 	balance = w3.eth.getBalance(contract_address)
 	print(w3.fromWei(balance,"ether"))
 	#setSampleSize(10)
-	setIpfsHash("accdvdcdsbfsvvsfbfbaffsvsvsv")
+	#setIpfsHash("accdvdcdsbfsvvsfbfbaffsvsvsv")
