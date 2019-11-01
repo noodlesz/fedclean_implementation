@@ -22,13 +22,13 @@
 
 
 ##	Instructions:
--	Data for all the agents can be found in "all_clients.py" in a hashMap structure which is explained in the file. 
+-	Data for all the agents can be found in **all_clients.py** in a hashMap structure which is explained in the file. 
 -	**ABHISHEK** needs to add REPUTATION SCORE data to the hashMap (if required).
--	**ABHISHEK** needs to run an AGENT SAMPLING SCRIPT on "all_clients.py" that will sample whitelisted agents and put it in a data structure explained in "whitelisted.py".
--	Once the whitelisted agents are available (in the given format), **ABHISHEK** needs to run the script XXXX.py. This will add the whitelisted agents to blockchain.
+-	**ABHISHEK** needs to run an AGENT SAMPLING SCRIPT on **all_clients.py** that will sample whitelisted agents and put it in a data structure explained in **whitelisted.py**.
+-	Once the whitelisted agents are available (in the given format), **ABHISHEK** needs to run the script **main.py**. This will add the whitelisted agents to blockchain.
 
 -	**IPFS DAEMON** has to be activated at this stage on the local computer using IPFS-CLI. Please find it online. Should be straightforward.
 
--	Later, **ABHISHEK** can run "ipfs_conn.py" which will serialize the local updates from each agent and add it to the IPFS, generate hashes, and store those hashes on the blockchain. 
+-	Later, **ABHISHEK** can run **ipfs_conn.py** which will serialize the local updates from each agent and add it to the IPFS, generate hashes, and store those hashes on the blockchain. 
 -	At the end, there will be a HASHMAP (mapping) stored on the blockchain which will contain the AGENT ADDRESSES as the key, and the IPFS HASHES generated for their data as a VALUE. 
 -	The data structure can be used to query and use the data for further hypersphere-based classification model. 
