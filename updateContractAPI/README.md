@@ -1,16 +1,16 @@
-#### **Author:** Vivek Khimani
-#### **Contact:** +12673049080
-#### **Purpose:** Interaction with CollectUpdatesContract (Federated Learning Research Paper)
+-	**Author:** Vivek Khimani
+-	**Contact:** +12673049080
+-	**Purpose:** Interaction with CollectUpdatesContract (Federated Learning Research Paper)
 -------
 
-## INSTALLATIONS REQUIRED: 
+## Required Installations: 
 -	web3 - "pip install web3"
 -	ipfs-api - "pip install ipfs-api"
 -	local ipfs installation - "https://docs.ipfs.io/guides/guides/install/"
 
 
 
-##	FILES INFORMATION:
+##	Files Information:
 -	my_abi.json => abi of the contract stored in json format (VIVEK)
 -	credentials.py => formatted abi and bytecode (VIVEK)
 -	DeployContract.py => used to store and create contract instance (VIVEK)
@@ -21,7 +21,7 @@
 
 
 
-##	INSTRUCTIONS:
+##	Instructions:
 -	Data for all the agents can be found in "all_clients.py" in a hashMap structure which is explained in the file. 
 -	**ABHISHEK** needs to add REPUTATION SCORE data to the hashMap (if required).
 -	**ABHISHEK** needs to run an AGENT SAMPLING SCRIPT on "all_clients.py" that will sample whitelisted agents and put it in a data structure explained in "whitelisted.py".
