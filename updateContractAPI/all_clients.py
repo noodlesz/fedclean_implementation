@@ -4,4 +4,18 @@
 
 #ABHISHEK - YOU CAN ADD REPUTATION SCORE FIELD in the VALUE LIST.
 
-all_clients = {"0xfCb89072149b45ad9bbF698d15efA2283da8fd6f":["DD44F501B7B2542F2B1A8DD9B4D58DF56185D5BD295E1AC0E0B4E5E84122817C"],"0xEF84a3c5E2914De5FD235937351Ef73C1E4B9658":["9BD5A6185BA6CF19961AB6463B30CEE104B6B1FC1BAECDEBF54CDC06738D5DEE"],"0x6E9b61CAAC3b61bA1bE990ea07Ebe1CcF2cCAb0D":["40DF48B5F5465C59E9CA1A3C8A82EAA65BF9FC3427617010468E855C79978F69"]}
+import csv
+all_clients = {}
+
+with open('Participant_Details.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    counter = 0
+    for row in reader:
+        if counter == 0:
+            counter+=1
+            continue
+        all_clients[row['ETH_ADDRESS']] = row['PRIVATE_KEY']
+
+#DRIVER
+if __name__ == '__main__':
+    print(all_clients)
