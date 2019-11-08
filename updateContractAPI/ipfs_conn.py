@@ -4,6 +4,7 @@ from DeployContract import contract_instance,w3,contract_address,contract_privat
 from all_clients import all_clients
 from whitelisted import whitelisted
 
+#FIXME: whitelisted MODIFIER doesn't tend to work from Python script but works perfectly in Remix. NOT VERY IMP as won't delay the pipeline building. 
 w3.eth.defaultAccount = contract_instance.address
 
 #requires installation of ipfs-daemon on your local computer
@@ -13,15 +14,18 @@ def setIpfsHash(yourKey,yourHash):
 	try:
 		wallet_address = Web3.toChecksumAddress(yourKey)
 		nonce = w3.eth.getTransactionCount(wallet_address)
+		gas_price = w3.eth.gasPrice
+		avail_bal = w3.eth.getBalance(yourKey)
 
-		txn_dict = contract_instance.functions.setIpfsHash(yourHash).buildTransaction({'chainId': 3, 'nonce': nonce,})
 
-		signed_txn = w3.eth.account.signTransaction(txn_dict,private_key = all_clients[yourKey][0])
+		txn_dict = contract_instance.functions.setIpfsHash(yourHash).buildTransaction({'from':wallet_address,'chainId': 3, 'nonce': nonce,'gasPrice':gas_price,})
+
+		signed_txn = w3.eth.account.signTransaction(txn_dict,private_key = all_clients[yourKey])
 		result = w3.eth.sendRawTransaction(signed_txn.rawTransaction)
 
 	except KeyError as e:
 		print("Maybe the key is incorrect or not whitelisted. Sorry.")
-	
+
 	count = 0
 	okay = False
 	while not okay:
@@ -52,4 +56,4 @@ def addAll():
 if __name__ == '__main__':
 	print("Storing Hashes to Blockchains...")
 	addAll()
-
+	#setIpfsHash("0x32462C9B4ad9d3Af7b6dFa748438999D0e82Fe42","ascadavaddcac")

@@ -1,166 +1,132 @@
 {
-   "abi":[
-      {
-         "constant":true,
-         "inputs":[
-            {
-               "name":"b",
-               "type":"bytes"
-            }
-         ],
-         "name":"bytesToAddress",
-         "outputs":[
-            {
-               "name":"",
-               "type":"address"
-            }
-         ],
-         "payable":false,
-         "stateMutability":"pure",
-         "type":"function"
-      },
-      {
-         "constant":false,
-         "inputs":[
-            {
-               "name":"_ipfsHash",
-               "type":"string"
-            }
-         ],
-         "name":"setIpfsHash",
-         "outputs":[
-
-         ],
-         "payable":false,
-         "stateMutability":"nonpayable",
-         "type":"function"
-      },
-      {
-         "constant":false,
-         "inputs":[
-            {
-               "name":"_size",
-               "type":"uint256"
-            }
-         ],
-         "name":"setSampleSize",
-         "outputs":[
-
-         ],
-         "payable":false,
-         "stateMutability":"nonpayable",
-         "type":"function"
-      },
-      {
-         "constant":true,
-         "inputs":[
-            {
-               "name":"",
-               "type":"address"
-            }
-         ],
-         "name":"_acceptedIpfsHash",
-         "outputs":[
-            {
-               "name":"agent",
-               "type":"address"
-            },
-            {
-               "name":"ipfsUpdatesHash",
-               "type":"string"
-            }
-         ],
-         "payable":false,
-         "stateMutability":"view",
-         "type":"function"
-      },
-      {
-         "constant":true,
-         "inputs":[
-
-         ],
-         "name":"ethServer",
-         "outputs":[
-            {
-               "name":"",
-               "type":"address"
-            }
-         ],
-         "payable":false,
-         "stateMutability":"view",
-         "type":"function"
-      },
-      {
-         "constant":true,
-         "inputs":[
-            {
-               "name":"",
-               "type":"uint256"
-            }
-         ],
-         "name":"acceptedAgents",
-         "outputs":[
-            {
-               "name":"",
-               "type":"address"
-            }
-         ],
-         "payable":false,
-         "stateMutability":"view",
-         "type":"function"
-      },
-      {
-         "constant":false,
-         "inputs":[
-            {
-               "name":"_newAddress",
-               "type":"string"
-            }
-         ],
-         "name":"addAccepted",
-         "outputs":[
-
-         ],
-         "payable":false,
-         "stateMutability":"nonpayable",
-         "type":"function"
-      },
-      {
-         "inputs":[
-
-         ],
-         "payable":false,
-         "stateMutability":"nonpayable",
-         "type":"constructor"
-      },
-      {
-         "anonymous":false,
-         "inputs":[
-            {
-               "indexed":false,
-               "name":"agent",
-               "type":"address"
-            },
-            {
-               "indexed":false,
-               "name":"ipfsUpdatesHash",
-               "type":"string"
-            }
-         ],
-         "name":"updateReceived",
-         "type":"event"
-      },
-      {
-         "anonymous":false,
-         "inputs":[
-            {
-               "indexed":false,
-               "name":"updatesCompleted",
-               "type":"bool"
-            }
-         ],
-         "name":"allUpdatesReceived",
-         "type":"event"
-      }
-   ]
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_hopeForTheBest",
+          "type": "address[]"
+        }
+      ],
+      "name": "whiteExperiment",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "createMapping",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_ipfsHash",
+          "type": "string"
+        }
+      ],
+      "name": "setIpfsHash",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "_acceptedIpfsHash",
+      "outputs": [
+        {
+          "name": "agent",
+          "type": "address"
+        },
+        {
+          "name": "ipfsUpdatesHash",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "ethServer",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "acceptedAgents",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "agent",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "ipfsUpdatesHash",
+          "type": "string"
+        }
+      ],
+      "name": "updateReceived",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "updatesCompleted",
+          "type": "bool"
+        }
+      ],
+      "name": "allUpdatesReceived",
+      "type": "event"
+    }
+  ]
 }
