@@ -35,6 +35,8 @@
 
 - **IPFS DAEMON** has to be activated at this stage on the local computer using IPFS-CLI. Please find it online. Should be straightforward.
 
-- Later, **ABHISHEK** can run **ipfs_conn.py** which will serialize the local updates from each agent and add it to the IPFS, generate hashes, and store those hashes on the blockchain.
-- At the end, there will be a HASHMAP (mapping) stored on the blockchain which will contain the AGENT ADDRESSES as the key, and the IPFS HASHES generated for their data as a VALUE.
-- The data structure can be used to query and use the data for further hypersphere-based classification model. (These updates can be received back as PYTHON LISTS using **api.get_pyobj(HASH)**. The HASH value for each agent will be found from the mapping stored on smart contract.)
+- Later, **ABHISHEK** can run **getLocalAgentUpdates.py** (NOTE that this will run ipfs_conn.py implicity) which will serialize the local updates from each agent and add it to the IPFS, generate hashes, and store those hashes on the blockchain. Running this script, will enable ABHISHEK to get the LOCAL_UPDATES from all the whitelisted agents as a 2-D array and he can further use it for HYPERSPHERE BASED CLASSIFIER and other use cases.
+
+## Global Update Storage Mechanism:
+
+- NOTE that there is a file called **updateGlobalState.py**, which can be called by the SERVER to update the global updates on State smart contract. As a result, this file has to be used when the federated learning mechanism is updated.
