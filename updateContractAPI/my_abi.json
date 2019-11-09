@@ -1,17 +1,88 @@
 {
   "abi": [
     {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_hopeForTheBest",
-          "type": "address[]"
-        }
-      ],
-      "name": "whiteExperiment",
-      "outputs": [],
+      "inputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "updatesCompleted",
+          "type": "bool"
+        }
+      ],
+      "name": "allUpdatesReceived",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "agent",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "ipfsUpdatesHash",
+          "type": "string"
+        }
+      ],
+      "name": "updateReceived",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "_acceptedIpfsHash",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "agent",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "ipfsUpdatesHash",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "acceptedAgents",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -24,9 +95,25 @@
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [],
+      "name": "ethServer",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [
         {
+          "internalType": "string",
           "name": "_ipfsHash",
           "type": "string"
         }
@@ -38,95 +125,19 @@
       "type": "function"
     },
     {
-      "constant": true,
+      "constant": false,
       "inputs": [
         {
-          "name": "",
-          "type": "address"
+          "internalType": "address[]",
+          "name": "_hopeForTheBest",
+          "type": "address[]"
         }
       ],
-      "name": "_acceptedIpfsHash",
-      "outputs": [
-        {
-          "name": "agent",
-          "type": "address"
-        },
-        {
-          "name": "ipfsUpdatesHash",
-          "type": "string"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "ethServer",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "acceptedAgents",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
+      "name": "whiteExperiment",
+      "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "name": "agent",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "name": "ipfsUpdatesHash",
-          "type": "string"
-        }
-      ],
-      "name": "updateReceived",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "name": "updatesCompleted",
-          "type": "bool"
-        }
-      ],
-      "name": "allUpdatesReceived",
-      "type": "event"
+      "type": "function"
     }
   ]
 }

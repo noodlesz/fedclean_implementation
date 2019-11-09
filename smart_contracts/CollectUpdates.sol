@@ -1,4 +1,4 @@
-pragma solidity ^0.4.22;
+pragma solidity ^0.5.12;
 
 contract CollectUpdates {
 
@@ -75,5 +75,10 @@ contract CollectUpdates {
             }
         }
     }
+
+    //a function to get local updates for a given ipfsHash
+    //function getIpfsHash(address _givenAgent) onlyServer public view returns(string memory){
+     //   return _acceptedIpfsHash[_givenAgent].ipfsUpdatesHash;
+    //}
 
 }

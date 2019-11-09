@@ -4,7 +4,7 @@ from DeployContract import contract_instance,w3,contract_address,contract_privat
 from all_clients import all_clients
 from whitelisted import whitelisted
 
-#FIXME: whitelisted MODIFIER doesn't tend to work from Python script but works perfectly in Remix. NOT VERY IMP as won't delay the pipeline building. 
+#FIXME: whitelisted MODIFIER doesn't tend to work from Python script but works perfectly in Remix. NOT VERY IMP as won't delay the pipeline building.
 w3.eth.defaultAccount = contract_instance.address
 
 #requires installation of ipfs-daemon on your local computer
@@ -43,10 +43,15 @@ def setIpfsHash(yourKey,yourHash):
 			continue
 
 def addAll():
+	ipfsResultDict = {}
 	for items in whitelisted.keys():
 		ipfs_hash = api.add_pyobj(whitelisted[items])
 		setIpfsHash(items,ipfs_hash)
+		ipfsResultDict[items] = ipfs_hash
 
+	return ipfsResultDict
+
+hash_store = addAll()
 
 #FIXME: CAN ONLY BE RUN AND TESTED WHEN WE HAVE AGENT SAMPLING SCRIPT AND WHITELISTED CLIENTS.
 
@@ -55,5 +60,6 @@ def addAll():
 #driver
 if __name__ == '__main__':
 	print("Storing Hashes to Blockchains...")
-	addAll()
+
+
 	#setIpfsHash("0x32462C9B4ad9d3Af7b6dFa748438999D0e82Fe42","ascadavaddcac")
