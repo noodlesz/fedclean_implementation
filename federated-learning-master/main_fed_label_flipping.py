@@ -13,10 +13,10 @@ import random
 
 from utils.sampling import mnist_iid, mnist_noniid, cifar_iid
 from utils.options import args_parser
-from models.Update import LocalUpdate
+from models.UpdateLabelFlipped import LocalUpdate
 from models.Nets import MLP, CNNMnist, CNNCifar
 from models.Fed import FedAvg
-from models.test import test_img
+from models.testLabelFlipped import test_img
 from collections import OrderedDict,defaultdict
 
 
@@ -180,64 +180,50 @@ if __name__ == '__main__':
             local30 = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
 
             w, loss = local.train(net=copy.deepcopy(net_glob).to(args.device))
-            w1, loss1 = local1.train(net=copy.deepcopy(net_glob1).to(args.device))
-            w5, loss5 = local5.train(net=copy.deepcopy(net_glob5).to(args.device))
-            w10, loss10 = local10.train(net=copy.deepcopy(net_glob10).to(args.device))
-            w15, loss15 = local15.train(net=copy.deepcopy(net_glob15).to(args.device))
-            w20, loss20 = local20.train(net=copy.deepcopy(net_glob20).to(args.device))
-            w25, loss25 = local25.train(net=copy.deepcopy(net_glob25).to(args.device))
-            w30, loss30 = local30.train(net=copy.deepcopy(net_glob30).to(args.device))
             print("***BLAH BLAH BLAH***")
 
 
             if idx==fixed_agent_1:
-                if updates_recorded_1:
-                    w1 = copy.deepcopy(fixed_agent_storage_1)
-                elif not updates_recorded_1:
-                    fixed_agent_storage_1 = copy.deepcopy(w1)
-                    updates_recorded_1 = True
+                w1, loss1 = local1.train_alternate(net=copy.deepcopy(net_glob).to(args.device))
+
+            if idx!=fixed_agent_1:
+                w1,loss1 = local1.train(net=copy.deepcopy(net_glob).to(args.device))
 
             if idx in fixed_agent_5:
-                if updates_recorded_mapping_5[idx]:
-                    w5 = copy.deepcopy(fixed_agent_storage_mapping_5[idx])
-                elif not updates_recorded_mapping_5[idx]:
-                    fixed_agent_storage_mapping_5[idx] = copy.deepcopy(w5)
-                    updates_recorded_mapping_5[idx] = True
+                w5, loss5 = local5.train_alternate(net=copy.deepcopy(net_glob5).to(args.device))
+
+            if idx not in fixed_agent_5:
+                w5, loss5 = local5.train(net=copy.deepcopy(net_glob5).to(args.device))
 
             if idx in fixed_agent_10:
-                if updates_recorded_mapping_10[idx]:
-                    w10 = copy.deepcopy(fixed_agent_storage_mapping_10[idx])
-                elif not updates_recorded_mapping_10[idx]:
-                    fixed_agent_storage_mapping_10[idx] = copy.deepcopy(w10)
-                    updates_recorded_mapping_10[idx] = True
+                w10, loss10 = local10.train_alternate(net=copy.deepcopy(net_glob10).to(args.device))
+
+            if idx not in fixed_agent_10:
+                w10, loss10 = local10.train(net=copy.deepcopy(net_glob10).to(args.device))
 
             if idx in fixed_agent_15:
-                if updates_recorded_mapping_15[idx]:
-                    w15 = copy.deepcopy(fixed_agent_storage_mapping_15[idx])
-                elif not updates_recorded_mapping_15[idx]:
-                    fixed_agent_storage_mapping_15[idx] = copy.deepcopy(w15)
-                    updates_recorded_mapping_15[idx] = True
+                w15, loss15 = local15.train_alternate(net=copy.deepcopy(net_glob15).to(args.device))
+
+            if idx not in fixed_agent_15:
+                w15, loss15 = local15.train(net=copy.deepcopy(net_glob15).to(args.device))
 
             if idx in fixed_agent_20:
-                if updates_recorded_mapping_20[idx]:
-                    w20 = copy.deepcopy(fixed_agent_storage_mapping_20[idx])
-                elif not updates_recorded_mapping_20[idx]:
-                    fixed_agent_storage_mapping_20[idx] = copy.deepcopy(w20)
-                    updates_recorded_mapping_20[idx] = True
+                w20, loss20 = local20.train_alternate(net=copy.deepcopy(net_glob20).to(args.device))
+
+            if idx not in fixed_agent_20:
+                w20, loss20 = local20.train(net=copy.deepcopy(net_glob20).to(args.device))
 
             if idx in fixed_agent_25:
-                if updates_recorded_mapping_25[idx]:
-                    w25 = copy.deepcopy(fixed_agent_storage_mapping_25[idx])
-                elif not updates_recorded_mapping_25[idx]:
-                    fixed_agent_storage_mapping_25[idx] = copy.deepcopy(w25)
-                    updates_recorded_mapping_25[idx] = True
+                w25, loss25 = local25.train_alternate(net=copy.deepcopy(net_glob25).to(args.device))
+
+            if idx not in fixed_agent_25:
+                w25, loss25 = local25.train(net=copy.deepcopy(net_glob25).to(args.device))
 
             if idx in fixed_agent_30:
-                if updates_recorded_mapping_30[idx]:
-                    w30 = copy.deepcopy(fixed_agent_storage_mapping_30[idx])
-                elif not updates_recorded_mapping_30[idx]:
-                    fixed_agent_storage_mapping_30[idx] = copy.deepcopy(w30)
-                    updates_recorded_mapping_30[idx] = True
+                w30, loss30 = local30.train_alternate(net=copy.deepcopy(net_glob30).to(args.device))
+
+            if idx not in fixed_agent_30:
+                w30, loss30 = local30.train(net=copy.deepcopy(net_glob30).to(args.device))
 
 
             #NO ATTACK
@@ -342,49 +328,65 @@ if __name__ == '__main__':
     # testing
     net_glob.eval()
     #print("Agent_Found_Count",agent_found_count)
-    acc_train, loss_train = test_img(net_glob, dataset_train, args)
-    acc_test, loss_test = test_img(net_glob, dataset_test, args)
+    acc_train, loss_train, acc_train_2 = test_img(net_glob, dataset_train, args)
+    acc_test, loss_test, acc_test_2 = test_img(net_glob, dataset_test, args)
     print("Training accuracy (NO ATTACK): {:.2f}".format(acc_train))
     print("Testing accuracy (NO ATTACK): {:.2f}".format(acc_test))
+    print("Training accuracy-2 (NO ATTACK): {:.2f}".format(acc_train_2))
+    print("Testing accuracy-2 (NO ATTACK): {:.2f}".format(acc_test_2))
 
     net_glob1.eval()
-    acc_train1, loss_train_1 = test_img(net_glob1, dataset_train, args)
-    acc_test1, loss_test_1 = test_img(net_glob1, dataset_test, args)
+    acc_train1, loss_train_1, acc_train_2_1 = test_img(net_glob1, dataset_train, args)
+    acc_test1, loss_test_1, acc_test_2_1 = test_img(net_glob1, dataset_test, args)
     print("Training accuracy (CONSTANT ATTACK 1): {:.2f}".format(acc_train1))
     print("Testing accuracy (CONSTANT ATTACK 1): {:.2f}".format(acc_test1))
+    print("Training accuracy-2 (CONSTANT ATTACK 1): {:.2f}".format(acc_train_2_1))
+    print("Testing accuracy-2 (CONSTANT ATTACK 1): {:.2f}".format(acc_test_2_1))
 
     net_glob5.eval()
-    acc_train5, loss_train_5 = test_img(net_glob5, dataset_train, args)
-    acc_test5, loss_test_5 = test_img(net_glob5, dataset_test, args)
+    acc_train5, loss_train_5, acc_train_2_5 = test_img(net_glob5, dataset_train, args)
+    acc_test5, loss_test_5, acc_test_2_5 = test_img(net_glob5, dataset_test, args)
     print("Training accuracy (CONSTANT ATTACK 5): {:.2f}".format(acc_train5))
     print("Testing accuracy (CONSTANT ATTACK 5): {:.2f}".format(acc_test5))
+    print("Training accuracy-2 (CONSTANT ATTACK 5): {:.2f}".format(acc_train_2_5))
+    print("Testing accuracy-2 (CONSTANT ATTACK 5): {:.2f}".format(acc_test_2_5))
 
     net_glob10.eval()
-    acc_train10, loss_train_10 = test_img(net_glob10, dataset_train, args)
-    acc_test10, loss_test_10 = test_img(net_glob10, dataset_test, args)
+    acc_train10, loss_train_10,acc_train_2_10 = test_img(net_glob10, dataset_train, args)
+    acc_test10, loss_test_10,acc_test_2_10 = test_img(net_glob10, dataset_test, args)
     print("Training accuracy (CONSTANT ATTACK 10): {:.2f}".format(acc_train10))
     print("Testing accuracy (CONSTANT ATTACK 10): {:.2f}".format(acc_test10))
+    print("Training accuracy-2 (CONSTANT ATTACK 10): {:.2f}".format(acc_train_2_10))
+    print("Testing accuracy-2 (CONSTANT ATTACK 10): {:.2f}".format(acc_test_2_10))
 
     net_glob15.eval()
-    acc_train15, loss_train_15 = test_img(net_glob15, dataset_train, args)
-    acc_test15, loss_test_15 = test_img(net_glob15, dataset_test, args)
+    acc_train15, loss_train_15,acc_train_2_15 = test_img(net_glob15, dataset_train, args)
+    acc_test15, loss_test_15,acc_test_2_15 = test_img(net_glob15, dataset_test, args)
     print("Training accuracy (CONSTANT ATTACK 15): {:.2f}".format(acc_train15))
     print("Testing accuracy (CONSTANT ATTACK 15): {:.2f}".format(acc_test15))
+    print("Training accuracy-2 (CONSTANT ATTACK 15): {:.2f}".format(acc_train_2_15))
+    print("Testing accuracy-2 (CONSTANT ATTACK 15): {:.2f}".format(acc_test_2_15))
 
     net_glob20.eval()
-    acc_train20, loss_train_20 = test_img(net_glob20, dataset_train, args)
-    acc_test20, loss_test_20 = test_img(net_glob20, dataset_test, args)
+    acc_train20, loss_train_20,acc_train_2_20 = test_img(net_glob20, dataset_train, args)
+    acc_test20, loss_test_20,acc_test_2_20 = test_img(net_glob20, dataset_test, args)
     print("Training accuracy (CONSTANT ATTACK 20): {:.2f}".format(acc_train20))
     print("Testing accuracy (CONSTANT ATTACK 20): {:.2f}".format(acc_test20))
+    print("Training accuracy-2 (CONSTANT ATTACK 20): {:.2f}".format(acc_train_2_20))
+    print("Testing accuracy-2 (CONSTANT ATTACK 20): {:.2f}".format(acc_test_2_20))
 
     net_glob25.eval()
-    acc_train25, loss_train_25 = test_img(net_glob25, dataset_train, args)
-    acc_test25, loss_test_25 = test_img(net_glob25, dataset_test, args)
+    acc_train25, loss_train_25,acc_train_2_25 = test_img(net_glob25, dataset_train, args)
+    acc_test25, loss_test_25,acc_test_2_25 = test_img(net_glob25, dataset_test, args)
     print("Training accuracy (CONSTANT ATTACK 25): {:.2f}".format(acc_train25))
     print("Testing accuracy (CONSTANT ATTACK 25): {:.2f}".format(acc_test25))
+    print("Training accuracy-2 (CONSTANT ATTACK 25): {:.2f}".format(acc_train_2_25))
+    print("Testing accuracy-2 (CONSTANT ATTACK 25): {:.2f}".format(acc_test_2_25))
 
     net_glob30.eval()
-    acc_train30, loss_train_30 = test_img(net_glob30, dataset_train, args)
-    acc_test30, loss_test_30 = test_img(net_glob30, dataset_test, args)
+    acc_train30, loss_train_30,acc_train_2_30 = test_img(net_glob30, dataset_train, args)
+    acc_test30, loss_test_30,acc_test_2_30 = test_img(net_glob30, dataset_test, args)
     print("Training accuracy (CONSTANT ATTACK 30): {:.2f}".format(acc_train30))
     print("Testing accuracy (CONSTANT ATTACK 30): {:.2f}".format(acc_test30))
+    print("Training accuracy-2 (CONSTANT ATTACK 30): {:.2f}".format(acc_train_2_30))
+    print("Testing accuracy-2 (CONSTANT ATTACK 30): {:.2f}".format(acc_test_2_30))

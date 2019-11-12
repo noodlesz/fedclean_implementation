@@ -87,6 +87,21 @@
     },
     {
       "constant": false,
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_hopeForTheBest",
+          "type": "address[]"
+        }
+      ],
+      "name": "addWhitelisted",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
       "inputs": [],
       "name": "createMapping",
       "outputs": [],
@@ -119,21 +134,6 @@
         }
       ],
       "name": "setIpfsHash",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "internalType": "address[]",
-          "name": "_hopeForTheBest",
-          "type": "address[]"
-        }
-      ],
-      "name": "whiteExperiment",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",

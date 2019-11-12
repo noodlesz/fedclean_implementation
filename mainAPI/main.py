@@ -36,7 +36,7 @@ def storeWhitelisted(my_dict):
 		final_array.append(items)
 
 	nonce = w3.eth.getTransactionCount(contract_address)
-	txn_dict = contract_instance.functions.whiteExperiment(final_array).buildTransaction({'from':contract_address,'chainId': 3,'nonce':nonce,})
+	txn_dict = contract_instance.functions.addWhitelisted(final_array).buildTransaction({'from':contract_address,'chainId': 3,'nonce':nonce,})
 	signed_txn = w3.eth.account.signTransaction(txn_dict,private_key = contract_private_key)
 	result = w3.eth.sendRawTransaction(signed_txn.rawTransaction)
 
@@ -89,5 +89,5 @@ if __name__ == '__main__':
 	print("Adding Whitelisted agents to the Blockchain...")
 	#populateWhiteListed(whitelisted)
 	#whiteListTest(sampled)
-	storeWhitelisted(whitelisted)
+	#storeWhitelisted(whitelisted)
 	whiteListMapping()

@@ -1,0 +1,17 @@
+METHOD_NAME,GAS_COST(ETH),GAS_COST(ETH),INPUT_SIZE
+getRepScoreFromWeb3Py,0.000132935,0.025,4
+getRepScoreFromWeb3Py,0.000150308,0.028,8
+getRepScoreFromWeb3Py,0.000182658,0.034,12
+getRepScoreFromWeb3Py,0.000174608,0.032,16
+getRepScoreFromWeb3Py,0.000180159,0.033,20
+getRepScoreFromWeb3Py,0.000577558,0.110,24
+getRepScoreFromWeb3Py,0.000211250,0.039,28
+getRepScoreFromWeb3Py,0.000226803,0.042,32
+createMapping,0.000128141,0.024,4
+createMapping,0.000128141,0.024,8
+createMapping,0.000128141,0.024,12
+createMapping,0.000128141,0.024,16
+createMapping,0.000128141,0.024,20
+createMapping,0.000128141,0.024,24
+createMapping,0.000128141,0.024,28
+createMapping,0.000128141,0.024,32
