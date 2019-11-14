@@ -157,6 +157,8 @@ if __name__ == '__main__':
     fixed_agent_storage_mapping_30 = {}
     count_array_30 = []
 
+    malicious_dict = {1:[fixed_agent_1],5:fixed_agent_5,10:fixed_agent_10,15:fixed_agent_15,20:fixed_agent_20,25:fixed_agent_25,30:fixed_agent_30}
+    malicious_count ={1:0,5:0,10:0,15:0,20:0,25:0,30:0}
 
     for iter in range(args.epochs):
         #agent_found_count = 0
@@ -187,42 +189,49 @@ if __name__ == '__main__':
 
             if idx == fixed_agent_1:
                 w1,loss1 = local1.train_flipped(net=copy.deepcopy(net_glob1).to(args.device))
+                malicious_count[1]+=1
 
             if idx != fixed_agent_1:
                 w1, loss1 = local1.train(net=copy.deepcopy(net_glob1).to(args.device))
 
             if idx in fixed_agent_5:
-                w5,loss5 = local5.train_flipped(net=copy.deepcopy(net_glob1).to(args.device))
+                w5,loss5 = local5.train_flipped(net=copy.deepcopy(net_glob5).to(args.device))
+                malicious_count[5]+=1
 
             if idx not in fixed_agent_5:
                 w5, loss5 = local5.train(net=copy.deepcopy(net_glob5).to(args.device))
 
             if idx in fixed_agent_10:
-                w10,loss10 = local10.train_flipped(net=copy.deepcopy(net_glob1).to(args.device))
+                w10,loss10 = local10.train_flipped(net=copy.deepcopy(net_glob10).to(args.device))
+                malicious_count[10]+=1
 
             if idx not in fixed_agent_10:
                 w10, loss10 = local10.train(net=copy.deepcopy(net_glob10).to(args.device))
 
             if idx in fixed_agent_15:
-                w15,loss15 = local15.train_flipped(net=copy.deepcopy(net_glob1).to(args.device))
+                w15,loss15 = local15.train_flipped(net=copy.deepcopy(net_glob15).to(args.device))
+                malicious_count[15]+=1
 
             if idx not in fixed_agent_15:
                 w15, loss15 = local15.train(net=copy.deepcopy(net_glob15).to(args.device))
 
             if idx in fixed_agent_20:
-                w20,loss20 = local20.train_flipped(net=copy.deepcopy(net_glob1).to(args.device))
+                w20,loss20 = local20.train_flipped(net=copy.deepcopy(net_glob20).to(args.device))
+                malicious_count[20]+=1
 
             if idx not in fixed_agent_20:
                 w20, loss20 = local20.train(net=copy.deepcopy(net_glob20).to(args.device))
 
             if idx in fixed_agent_25:
-                w25,loss25 = local25.train_flipped(net=copy.deepcopy(net_glob1).to(args.device))
+                w25,loss25 = local25.train_flipped(net=copy.deepcopy(net_glob25).to(args.device))
+                malicious_count[25]+=1
 
             if idx not in fixed_agent_25:
                 w25, loss25 = local25.train(net=copy.deepcopy(net_glob25).to(args.device))
 
             if idx in fixed_agent_30:
-                w30,loss30 = local30.train_flipped(net=copy.deepcopy(net_glob1).to(args.device))
+                w30,loss30 = local30.train_flipped(net=copy.deepcopy(net_glob30).to(args.device))
+                malicious_count[30]+=1
 
             if idx not in fixed_agent_30:
                 w30, loss30 = local30.train(net=copy.deepcopy(net_glob30).to(args.device))
@@ -326,6 +335,8 @@ if __name__ == '__main__':
     print("25 ATTACK DATA=",loss_train_25)
     print("30 ATTACK DATA=",loss_train_30)
 
+    print(malicious_dict)
+    print(malicious_count)
 
     # testing
     net_glob.eval()
