@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # Python version: 3.6
 
+import time
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -23,6 +24,7 @@ from collections import OrderedDict,defaultdict
 
 
 if __name__ == '__main__':
+    start = time.time()
     # parse args
     args = args_parser()
     args.device = torch.device('cuda:{}'.format(args.gpu) if torch.cuda.is_available() and args.gpu != -1 else 'cpu')
@@ -436,3 +438,9 @@ if __name__ == '__main__':
         writer.writerow((target_train_freq_20[0],correct_train_freq_20[0],target_test_freq_20[0],correct_test_freq_20[0],target_train_freq_20[1],correct_train_freq_20[1],target_test_freq_20[1],correct_test_freq_20[1],target_train_freq_20[2],correct_train_freq_20[2],target_test_freq_20[2],correct_test_freq_20[2],target_train_freq_20[3],correct_test_freq_20[3],target_test_freq_20[3],correct_test_freq_20[3],target_train_freq_20[4],correct_train_freq_20[4],target_test_freq_20[4],correct_test_freq_20[4],target_train_freq_20[5],correct_train_freq_20[5],target_test_freq_20[5],correct_test_freq_20[5],target_train_freq_20[6],correct_train_freq_20[6],target_test_freq_20[6],correct_test_freq_20[6],target_train_freq_20[7],correct_train_freq_20[7],target_test_freq_20[7],correct_test_freq_20[7],target_train_freq_20[8],correct_train_freq_20[8],target_test_freq_20[8],correct_test_freq_20[8],target_train_freq_20[9],correct_train_freq_20[9],target_test_freq_20[9],correct_test_freq_20[9]))
         writer.writerow((target_train_freq_25[0],correct_train_freq_25[0],target_test_freq_25[0],correct_test_freq_25[0],target_train_freq_25[1],correct_train_freq_25[1],target_test_freq_25[1],correct_test_freq_25[1],target_train_freq_25[2],correct_train_freq_25[2],target_test_freq_25[2],correct_test_freq_25[2],target_train_freq_25[3],correct_test_freq_25[3],target_test_freq_25[3],correct_test_freq_25[3],target_train_freq_25[4],correct_train_freq_25[4],target_test_freq_25[4],correct_test_freq_25[4],target_train_freq_25[5],correct_train_freq_25[5],target_test_freq_25[5],correct_test_freq_25[5],target_train_freq_25[6],correct_train_freq_25[6],target_test_freq_25[6],correct_test_freq_25[6],target_train_freq_25[7],correct_train_freq_25[7],target_test_freq_25[7],correct_test_freq_25[7],target_train_freq_25[8],correct_train_freq_25[8],target_test_freq_25[8],correct_test_freq_25[8],target_train_freq_25[9],correct_train_freq_25[9],target_test_freq_25[9],correct_test_freq_25[9]))
         writer.writerow((target_train_freq_30[0],correct_train_freq_30[0],target_test_freq_30[0],correct_test_freq_30[0],target_train_freq_30[1],correct_train_freq_30[1],target_test_freq_30[1],correct_test_freq_30[1],target_train_freq_30[2],correct_train_freq_30[2],target_test_freq_30[2],correct_test_freq_30[2],target_train_freq_30[3],correct_test_freq_30[3],target_test_freq_30[3],correct_test_freq_30[3],target_train_freq_30[4],correct_train_freq_30[4],target_test_freq_30[4],correct_test_freq_30[4],target_train_freq_30[5],correct_train_freq_30[5],target_test_freq_30[5],correct_test_freq_30[5],target_train_freq_30[6],correct_train_freq_30[6],target_test_freq_30[6],correct_test_freq_30[6],target_train_freq_30[7],correct_train_freq_30[7],target_test_freq_30[7],correct_test_freq_30[7],target_train_freq_30[8],correct_train_freq_30[8],target_test_freq_30[8],correct_test_freq_30[8],target_train_freq_30[9],correct_train_freq_30[9],target_test_freq_30[9],correct_test_freq_30[9]))
+
+end = time.time()
+print(end-start)
+
+
+        
