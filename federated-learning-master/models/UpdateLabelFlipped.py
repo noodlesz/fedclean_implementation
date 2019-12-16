@@ -41,6 +41,8 @@ class LocalUpdate(object):
             for batch_idx, (images,labels) in enumerate(self.ldr_train):
                 #Vivek MODIFICATION for LABEL FLIPPING
                 for items in range(len(labels)):
+                    #trying to customize for cifar 10
+                    print(labels[items])
                     if labels[items] == 2:
                         labels[items] = 5
                 #print(labels)
