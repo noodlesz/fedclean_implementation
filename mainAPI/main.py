@@ -56,7 +56,7 @@ def storeWhitelisted(my_dict):
 			continue
 
 #used to call a function in the contract that creates a mapping(address=>bool) in the smart contract. The mapping is used in the modifier logic and required.
-#ARGUMENT: None
+#ARGUMENTS: None
 def whiteListMapping():
 	nonce = w3.eth.getTransactionCount(contract_address)
 	txn_dict = contract_instance.functions.createMapping().buildTransaction({'chainId': 3,'nonce':nonce,})
@@ -85,7 +85,6 @@ if __name__ == '__main__':
 	print("Server Account Address:",str(w3.eth.defaultAccount))
 	balance = w3.eth.getBalance(contract_address)
 	print("Server Account Balance (ETH):",str(w3.fromWei(balance,"ether")))
-	#setIpfsHash("accdvdcdsbfsvvsfbfbaffsvsvsv")
 	print("Adding Whitelisted agents to the Blockchain...")
 	#populateWhiteListed(whitelisted)
 	#whiteListTest(sampled)
