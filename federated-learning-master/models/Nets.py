@@ -83,40 +83,13 @@ class customCNNCifar(nn.Module):
     def __init__(self, args):
         super(customCNNCifar, self).__init__()
 
-        #14 layers of unit with max pooling in between
-        self.unit1 = Unit(in_channels=3,out_channels=32)
-        self.unit2 = Unit(in_channels=32,out_channels=32)
-        self.unit3 = Unit(in_channels=32,out_channels=32)
+        self.conv_layer = nn.Sequential(nn.Conv2d(in_channels=3,out_channels=32,kernel_size=3,padding=1),nn.BatchNorm2d(32),nn.ReLU(inplace=True),nn.Conv2d(in_channels=32,out_channels=64,kernel_size=3,padding=1),nn.ReLU(inplace=True),nn.MaxPool2d(kernel_size=2, stride=2),nn.Conv2d(in_channels=64,out_channels=128,kernel_size=3,padding=1),nn.BatchNorm2d(128),nn.ReLU(inplace=True),nn.Conv2d(in_channels=128,out_channels=128,kernel_size=3,padding=1),nn.ReLU(inplace=True),nn.MaxPool2d(kernel_size=2,stride=2),nn.Dropout2d(p=0.05),nn.Conv2d(in_channels=128,out_channels=256,kernel_size=3,padding=1),nn.BatchNorm2d(256),nn.ReLU(inplace=True),nn.Conv2d(in_channels=256,out_channels=256,kernel_size=3,padding=1),nn.ReLU(inplace=True),nn.MaxPool2d(kernel_size=2,stride=2))
+        self.fc_layer = nn.Sequential(nn.Dropout(p=0.1),nn.Linear(4096,1024),nn.ReLU(inplace=True),nn.Linear(1024,512),nn.ReLU(inplace=True),nn.Dropout(p=0.1),nn.Linear(512,10))
 
-        self.pool1 = nn.MaxPool2d(kernel_size=2)
-
-        self.unit4 = Unit(in_channels=32,out_channels=64)
-        self.unit5 = Unit(in_channels=64,out_channels=64)
-        self.unit6 = Unit(in_channels=64,out_channels=64)
-        self.unit7 = Unit(in_channels=64,out_channels=64)
-
-        self.pool2 = nn.MaxPool2d(kernel_size=2)
-
-        self.unit8 = Unit(in_channels=64,out_channels=128)
-        self.unit9 = Unit(in_channels=128,out_channels=128)
-        self.unit10 = Unit(in_channels=128,out_channels=128)
-        self.unit11 = Unit(in_channels=128,out_channels=128)
-
-        self.pool3 = nn.MaxPool2d(kernel_size=2)
-
-        self.unit12 = Unit(in_channels=128,out_channels=128)
-        self.unit13 = Unit(in_channels=128,out_channels=128)
-        self.unit14 = Unit(in_channels=128,out_channels=128)
-
-        self.avgpool = nn.AvgPool2d(kernel_size=4)
-
-        #add all the units in-order in a sequential layer
-        self.net = nn.Sequential(self.unit1,self.unit2,self.unit3,self.pool1,self.unit4,self.unit5,self.unit6,self.unit7,self.pool2,self.unit8,self.unit9,self.unit10,self.unit11,self.pool3,self.unit12,self.unit13,self.unit14,self.avgpool)
-
-        self.fc = nn.Linear(in_features=128,out_features=args.num_classes)
 
     def forward(self,input):
-        output = self.net(input)
-        output = output.view(-1,128)
-        output = self.fc(output)
+        output = self.conv_layer(input)
+        output = output.view(output.size(0),-1)
+        output = self.fc_layer(output)
+        return output
         return output
