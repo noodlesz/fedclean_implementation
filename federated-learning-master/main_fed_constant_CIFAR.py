@@ -37,9 +37,10 @@ if __name__ == '__main__':
         else:
             dict_users = mnist_noniid(dataset_train, args.num_users)
     elif args.dataset == 'cifar':
-        trans_cifar = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-        dataset_train = datasets.CIFAR10('data/cifar', train=True, download=True, transform=trans_cifar)
-        dataset_test = datasets.CIFAR10('data/cifar', train=False, download=True, transform=trans_cifar)
+        trans_cifar_train = transforms.Compose([transforms.RandomHorizontalFlip(),transforms.RandomCrop(32,padding=4),transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+        trans_cifar_test = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5))])
+        dataset_train = datasets.CIFAR10('data/cifar', train=True, download=True, transform=trans_cifar_train)
+        dataset_test = datasets.CIFAR10('data/cifar', train=False, download=True, transform=trans_cifar_test)
         if args.iid:
             dict_users = cifar_iid(dataset_train, args.num_users)
         else:

@@ -13,7 +13,7 @@ def test_img(net_g, datatest, args):
     # testing
     test_loss = 0
     correct = 0
-    data_loader = DataLoader(datatest, batch_size=args.bs)
+    data_loader = DataLoader(datatest, batch_size=args.bs, shuffle=False)
     l = len(data_loader)
     for idx, (data, target) in enumerate(data_loader):
         if args.gpu != -1:

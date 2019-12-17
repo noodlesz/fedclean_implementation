@@ -8,6 +8,8 @@ from torch.utils.data import DataLoader, Dataset
 import numpy as np
 import random
 from sklearn import metrics
+from torch.optim import Adam
+from torch.autograd import Variable
 
 
 class DatasetSplit(Dataset):
@@ -21,8 +23,7 @@ class DatasetSplit(Dataset):
     def __getitem__(self, item):
         image, label = self.dataset[self.idxs[item]]
         return image, label
-
-
+        
 class LocalUpdate(object):
     def __init__(self, args, dataset=None, idxs=None):
         self.args = args
