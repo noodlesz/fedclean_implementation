@@ -50,14 +50,14 @@ if __name__ == '__main__':
 
     # build model
     if args.model == 'cnn' and args.dataset == 'cifar':
-        net_glob = CNNCifar(args=args).to(args.device)
-        net_glob1 = CNNCifar(args=args).to(args.device)
-        net_glob5 = CNNCifar(args=args).to(args.device)
-        net_glob10 = CNNCifar(args=args).to(args.device)
-        net_glob15 = CNNCifar(args=args).to(args.device)
-        net_glob20 = CNNCifar(args=args).to(args.device)
-        net_glob25 = CNNCifar(args=args).to(args.device)
-        net_glob30 = CNNCifar(args=args).to(args.device)
+        net_glob = customCNNCifar(args=args).to(args.device)
+        net_glob1 = customCNNCifar(args=args).to(args.device)
+        net_glob5 = customCNNCifar(args=args).to(args.device)
+        net_glob10 = customCNNCifar(args=args).to(args.device)
+        net_glob15 = customCNNCifar(args=args).to(args.device)
+        net_glob20 = customCNNCifar(args=args).to(args.device)
+        net_glob25 = customCNNCifar(args=args).to(args.device)
+        net_glob30 = customCNNCifar(args=args).to(args.device)
     elif args.model == 'cnn' and args.dataset == 'mnist':
         net_glob = CNNMnist(args=args).to(args.device)
 
