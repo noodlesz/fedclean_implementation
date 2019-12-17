@@ -66,7 +66,7 @@ class CNNCifar(nn.Module):
 
 class customCNNCifar(nn.Module):
     def __init__(self, args):
-        super(CNNCifar, self).__init__()
+        super(customCNNCifar, self).__init__()
         self.conv1 = nn.Conv2d(in_channels=3, out_channels=12, kernel_size=3, stride=1,padding=1)
         self.relu1 = nn.ReLU()
 
@@ -76,12 +76,12 @@ class customCNNCifar(nn.Module):
         self.pool = nn.MaxPool2d(kernel_size=2)
 
         self.conv3 = nn.Conv2d (in_channels=12, out_channels=24, kernel_size=3, stride=1, padding=1)
-        self.relu3 = self.ReLU()
+        self.relu3 = nn.ReLU()
 
         self.conv4 = nn.Conv2d (in_channels=24, out_channels=24, kernel_size=3, stride=1, padding=1)
         self.relu4 = nn.ReLU()
 
-        self.fc = nn.Linear(in_features=16*16*24, out_features=num_classes)
+        self.fc = nn.Linear(in_features=16*16*24, out_features=args.num_classes)
 
     def forward(self,input):
         output = self.conv1(input)
