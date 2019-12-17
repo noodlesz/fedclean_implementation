@@ -14,7 +14,7 @@ import csv
 
 from utils.sampling import mnist_iid, mnist_noniid, cifar_iid
 from utils.options import args_parser
-from models.Update import LocalUpdate
+from models.Update import customLocalUpdate
 from models.Nets import MLP, CNNMnist, CNNCifar, customCNNCifar
 from models.Fed import FedAvg
 from models.test import test_img
@@ -37,8 +37,8 @@ if __name__ == '__main__':
         else:
             dict_users = mnist_noniid(dataset_train, args.num_users)
     elif args.dataset == 'cifar':
-        #trans_cifar_train = transforms.Compose([transforms.RandomHorizontalFlip(),transforms.RandomCrop(32,padding=4),transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-        trans_cifar_train = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5))])
+        trans_cifar_train = transforms.Compose([transforms.RandomHorizontalFlip(),transforms.RandomCrop(32,padding=4),transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+        #trans_cifar_train = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5))])
         trans_cifar_test = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5))])
         dataset_train = datasets.CIFAR10('data/cifar', train=True, download=True, transform=trans_cifar_train)
         dataset_test = datasets.CIFAR10('data/cifar', train=False, download=True, transform=trans_cifar_test)
@@ -174,14 +174,14 @@ if __name__ == '__main__':
         idxs_users = np.random.choice(range(args.num_users), m, replace=False)  #Randomly selecting m users out of 32 users. NEED TO REPLACE THIS WITH OUR SAMPLING MECHANISM
 
         for idx in idxs_users:
-            local = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
-            local1 = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
-            local5 = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
-            local10 = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
-            local15 = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
-            local20 = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
-            local25 = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
-            local30 = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
+            local = customLocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
+            local1 = customLocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
+            local5 = customLocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
+            local10 = customLocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
+            local15 = customLocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
+            local20 = customLocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
+            local25 = customLocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
+            local30 = customLocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
 
             w, loss = local.train(net=copy.deepcopy(net_glob).to(args.device))
             w1, loss1 = local1.train(net=copy.deepcopy(net_glob1).to(args.device))
