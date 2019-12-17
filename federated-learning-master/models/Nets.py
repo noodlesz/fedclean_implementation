@@ -64,7 +64,7 @@ class CNNCifar(nn.Module):
         return F.log_softmax(x, dim=1)
 
 
-class customCNNCifar(nn.module):
+class customCNNCifar(nn.Module):
     def __init__(self, args):
         super(CNNCifar, self).__init__()
         self.conv1 = nn.Conv2d(in_channels=3, out_channels=12, kernel_size=3, stride=1,padding=1)
