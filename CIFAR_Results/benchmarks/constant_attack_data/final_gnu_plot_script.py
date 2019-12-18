@@ -13,7 +13,13 @@ fifth_result = {}
 
 #pick the best run out of all and put it in the .dat file (similar to MNIST processing.)
 #I have picked FOURTH run for now.
-with open('final_constant_attack_plot_data_x.dat','w') as f:
-    writer = csv.writer(f,delimiter='\t')
+
+for items in second_result.keys():
+	for indices,more_items in enumerate(second_result[items]):
+		second_result[items][indices] = more_items * 100
+
+with open('final_constant_attack_plot_data_2.csv','w') as f:
+    writer = csv.writer(f,delimiter=',')
+    writer.writerow(("ZERO","ONE","FIVE","TEN","FIFTEEN","TWENTY","TWENTY FIVE","THIRTY"))
     for i in range(50):
-        writer.writerow((fourth_result[0][i],fourth_result[1][i],fourth_result[5][i],fourth_result[10][i],fourth_result[15][i],fourth_result[20][i],fourth_result[25][i],fourth_result[30][i]))
+        writer.writerow((second_result[0][i],second_result[1][i],second_result[5][i],second_result[10][i],second_result[15][i],second_result[20][i],second_result[25][i],second_result[30][i]))
