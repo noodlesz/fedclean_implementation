@@ -63,16 +63,13 @@ class LocalUpdate(object):
             batch_loss = []
             for batch_idx, (images, labels) in enumerate(self.ldr_train):
                 images, labels = images.to(self.args.device), labels.to(self.args.device)
-
-                ###CUSTOM DEBUG START###
-                print(labels)
-                ###CUSTOM DEBUG END###
-
                 net.zero_grad()
                 log_probs = net(images)
+                ###VIVEK - LABEL FLIPPING MODIFICATION BEGIN
                 for i in range(len(labels)):
-                    if labels[i] == 2:
-                        labels[i] = 5
+                    if labels[i] == 0:
+                        labels[i] = 1
+                ###VIVEK - LABEL FLIPPING MODIFICATION END
                 loss = self.loss_func(log_probs, labels)
                 loss.backward()
                 optimizer.step()

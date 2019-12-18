@@ -349,8 +349,8 @@ if __name__ == '__main__':
     acc_test, loss_test, acc_test0,acc_test1,acc_test2,acc_test3,acc_test4,acc_test5,acc_test6,acc_test7,acc_test8,acc_test9,target_test_freq,correct_test_freq = test_img(net_glob, dataset_test, args)
     print("Training accuracy (NO ATTACK): {:.2f}".format(acc_train))
     print("Testing accuracy (NO ATTACK): {:.2f}".format(acc_test))
-    print("Training accuracy-2 (NO ATTACK): {:.2f}".format(acc_train2))
-    print("Testing accuracy-2 (NO ATTACK): {:.2f}".format(acc_test2))
+    print("Training accuracy-airplane (NO ATTACK): {:.2f}".format(acc_train0))
+    print("Testing accuracy-airplane (NO ATTACK): {:.2f}".format(acc_test0))
     print("\n")
 
     net_glob1.eval()
@@ -358,8 +358,8 @@ if __name__ == '__main__':
     acc_test_1, loss_test_1, acc_test0_1,acc_test1_1,acc_test2_1,acc_test3_1,acc_test4_1,acc_test5_1,acc_test6_1,acc_test7_1,acc_test8_1,acc_test9_1,target_test_freq_1,correct_test_freq_1 = test_img(net_glob1, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 1): {:.2f}".format(acc_train_1))
     print("Testing accuracy (LABEL FLIPPED 1): {:.2f}".format(acc_test_1))
-    print("Training accuracy-2 (LABEL FLIPPED 1): {:.2f}".format(acc_train2_1))
-    print("Testing accuracy-2 (LABEL FLIPPED 1): {:.2f}".format(acc_test2_1))
+    print("Training accuracy-airplane (LABEL FLIPPED 1): {:.2f}".format(acc_train0_1))
+    print("Testing accuracy-airplane (LABEL FLIPPED 1): {:.2f}".format(acc_test0_1))
     print("\n")
 
     net_glob5.eval()
@@ -367,8 +367,8 @@ if __name__ == '__main__':
     acc_test_5, loss_test_5, acc_test0_5,acc_test1_5,acc_test2_5,acc_test3_5,acc_test4_5,acc_test5_5,acc_test6_5,acc_test7_5,acc_test8_5,acc_test9_5,target_test_freq_5,correct_test_freq_5 = test_img(net_glob5, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 5): {:.2f}".format(acc_train_5))
     print("Testing accuracy (LABEL FLIPPED 5): {:.2f}".format(acc_test_5))
-    print("Training accuracy-2 (LABEL FLIPPED 5): {:.2f}".format(acc_train2_5))
-    print("Testing accuracy-2 (LABEL FLIPPED 5): {:.2f}".format(acc_test2_5))
+    print("Training accuracy-airplane (LABEL FLIPPED 5): {:.2f}".format(acc_train0_5))
+    print("Testing accuracy-airplane (LABEL FLIPPED 5): {:.2f}".format(acc_test0_5))
     print("\n")
 
     net_glob10.eval()
@@ -376,8 +376,8 @@ if __name__ == '__main__':
     acc_test_10, loss_test_10, acc_test0_10,acc_test1_10,acc_test2_10,acc_test3_10,acc_test4_10,acc_test5_10,acc_test6_10,acc_test7_10,acc_test8_10,acc_test9_10,target_test_freq_10,correct_test_freq_10 = test_img(net_glob10, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 10): {:.2f}".format(acc_train_10))
     print("Testing accuracy (LABEL FLIPPED 10): {:.2f}".format(acc_test_10))
-    print("Training accuracy-2 (LABEL FLIPPED 10): {:.2f}".format(acc_train2_10))
-    print("Testing accuracy-2 (LABEL FLIPPED 10): {:.2f}".format(acc_test2_10))
+    print("Training accuracy-airplane (LABEL FLIPPED 10): {:.2f}".format(acc_train0_10))
+    print("Testing accuracy-airplane (LABEL FLIPPED 10): {:.2f}".format(acc_test0_10))
     print("\n")
 
     net_glob15.eval()
@@ -385,8 +385,8 @@ if __name__ == '__main__':
     acc_test_15, loss_test_15, acc_test0_15,acc_test1_15,acc_test2_15,acc_test3_15,acc_test4_15,acc_test5_15,acc_test6_15,acc_test7_15,acc_test8_15,acc_test9_15,target_test_freq_15,correct_test_freq_15 = test_img(net_glob15, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 15): {:.2f}".format(acc_train_15))
     print("Testing accuracy (LABEL FLIPPED 15): {:.2f}".format(acc_test_15))
-    print("Training accuracy-2 (LABEL FLIPPED 15): {:.2f}".format(acc_train2_15))
-    print("Testing accuracy-2 (LABEL FLIPPED 15): {:.2f}".format(acc_test2_15))
+    print("Training accuracy-airplane (LABEL FLIPPED 15): {:.2f}".format(acc_train0_15))
+    print("Testing accuracy-airplane (LABEL FLIPPED 15): {:.2f}".format(acc_test0_15))
     print("\n")
 
     net_glob20.eval()
@@ -394,8 +394,8 @@ if __name__ == '__main__':
     acc_test_20, loss_test_20, acc_test0_20,acc_test1_20,acc_test2_20,acc_test3_20,acc_test4_20,acc_test5_20,acc_test6_20,acc_test7_20,acc_test8_20,acc_test9_20,target_test_freq_20,correct_test_freq_20 = test_img(net_glob20, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 20): {:.2f}".format(acc_train_20))
     print("Testing accuracy (LABEL FLIPPED 20): {:.2f}".format(acc_test_20))
-    print("Training accuracy-2 (LABEL FLIPPED 20): {:.2f}".format(acc_train2_20))
-    print("Testing accuracy-2 (LABEL FLIPPED 20): {:.2f}".format(acc_test2_20))
+    print("Training accuracy-airplane (LABEL FLIPPED 20): {:.2f}".format(acc_train0_20))
+    print("Testing accuracy-airplane (LABEL FLIPPED 20): {:.2f}".format(acc_test0_20))
     print("\n")
 
     net_glob25.eval()
@@ -403,8 +403,8 @@ if __name__ == '__main__':
     acc_test_25, loss_test_25, acc_test0_25,acc_test1_25,acc_test2_25, acc_test3_25,acc_test4_25,acc_test5_25,acc_test6_25,acc_test7_25,acc_test8_25,acc_test9_25,target_test_freq_25,correct_test_freq_25 = test_img(net_glob25, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 25): {:.2f}".format(acc_train_25))
     print("Testing accuracy (LABEL FLIPPED 25): {:.2f}".format(acc_test_25))
-    print("Training accuracy-2 (LABEL FLIPPED 25): {:.2f}".format(acc_train2_25))
-    print("Testing accuracy-2 (LABEL FLIPPED 25): {:.2f}".format(acc_test2_25))
+    print("Training accuracy-airplane (LABEL FLIPPED 25): {:.2f}".format(acc_train0_25))
+    print("Testing accuracy-airplane (LABEL FLIPPED 25): {:.2f}".format(acc_test0_25))
     print("\n")
 
     net_glob30.eval()
@@ -412,8 +412,8 @@ if __name__ == '__main__':
     acc_test_30, loss_test_30, acc_test0_30,acc_test1_30,acc_test2_30,acc_test3_30,acc_test4_30,acc_test5_30,acc_test6_30,acc_test7_30,acc_test8_30,acc_test9_30,target_test_freq_30,correct_test_freq_30 = test_img(net_glob30, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 30): {:.2f}".format(acc_train_30))
     print("Testing accuracy (LABEL FLIPPED 30): {:.2f}".format(acc_test_30))
-    print("Training accuracy-2 (LABEL FLIPPED 30): {:.2f}".format(acc_train2_30))
-    print("Testing accuracy-2 (LABEL FLIPPED 30): {:.2f}".format(acc_test2_30))
+    print("Training accuracy-airplane (LABEL FLIPPED 30): {:.2f}".format(acc_train0_30))
+    print("Testing accuracy-airplane (LABEL FLIPPED 30): {:.2f}".format(acc_test0_30))
     print("\n")
 
     with open("label_flipped_final_data.csv", "w") as csv_file:
