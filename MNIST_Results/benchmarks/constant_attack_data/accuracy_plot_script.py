@@ -21,4 +21,5 @@ average_result = {0:attack_none,1:attack_1,5:attacK_5,10:attack_10,15:attack_15,
 
 ##DRIVER##
 if __name__ == '__main__':
-	print(average_result)
+	for items in average_result.keys():
+		print(items,str(average_result[items]))
