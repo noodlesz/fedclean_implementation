@@ -1,4 +1,4 @@
-#FIRST FOUR are the BEST ONES :D
+import csv
 
 result_1 = {0:93.52,1:93.59,5:91.78,10:82.71,15:80.43,20:40.68,25:42.78,30:28.87}
 result_2 = {0:87.08,1:76.35,5:72.89,10:59.40,15:56.49,20:48.12,25:45.03,30:36.23}
@@ -21,5 +21,9 @@ average_result = {0:attack_none,1:attack_1,5:attacK_5,10:attack_10,15:attack_15,
 
 ##DRIVER##
 if __name__ == '__main__':
-	for items in average_result.keys():
-		print(items,str(average_result[items]))
+	with open("accuracy_plot_data.csv",'w+') as my_file:
+		writer = csv.writer(my_file,delimiter=',')
+		writer.writerow(("NUM_MAL_AGENTS","AVG_TESTING_ACCURACY"))
+		for items in average_result.keys():
+			writer.writerow((str(items),str(average_result[items])))
+			#print(items,str(average_result[items]))
