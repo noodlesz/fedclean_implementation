@@ -14,8 +14,7 @@
 ## Files Structure:
 
 - **constant_attack_plot_data_3.csv** -> columns: represent federated learning systems with different number of malicious agents; rows: represent training loss for each system in 1 epoch (range: [1:50])
-| 0_malicious_agents    | 1_malicious_agents   | 5_malicious_agents    | 10_malicious_agents    | 15_malicious_agents    | 20_malicious_agents    | 25_malicious_agents    | 30_malicious_agents    |
-| --------------------- | -------------------- | --------------------- | --------------------- | --------------------- | --------------------- | --------------------- | --------------------- |
+| 0_malicious_agents    | 1_malicious_agents   | 5_malicious_agents    | 10_malicious_agents    | 15_malicious_agents    | 20_malicious_agents    | 25_malicious_agents    | 30_malicious_agents | --------------------- | -------------------- | --------------------- | --------------------- | --------------------- | --------------------- | --------------------- | --------------------- |
 
 ## Intended Graphs:
 
