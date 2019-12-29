@@ -16,9 +16,12 @@
 - **constant_attack_plot_data_3.csv** -> columns: represent federated learning systems with different number of malicious agents; rows: represent training loss for each system in 1 epoch (range: [1:50])
 
 | 0_malicious_agents    | 1_malicious_agents   | 5_malicious_agents    | 10_malicious_agents    | 15_malicious_agents    | 20_malicious_agents    | 25_malicious_agents    | 30_malicious_agents |
+
+- **accuracy_plot_data.csv** -> pretty self-explanatory based on the labels. do contact me in case of any doubt/query.
+
 ## Intended Graphs:
 
 - **Figure 1** on FedClean Overleaf, i.e. Training Loss of Federated Learning System in presence of 0 to 30 malicious agents over 50 epochs of training. 
 - **Figure 2** on FedClean Overleaf, i.e. Testing Accuracy in presence of 0 to 30 agents after 50 rounds of training in 2 setting. 1) Natural (no defence) federated learning 2) FedClean (defence).
 
-** NOTE ** We don't have any data for FedClean accuracy for now, so just make a bar graph for one. We will add a combined comparison graph once we have a data for both. 
+**NOTE** We don't have any data for FedClean accuracy for now, so just make a bar graph for one. We will add a combined comparison graph once we have a data for both. 
