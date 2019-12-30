@@ -192,13 +192,12 @@ if __name__ == '__main__':
 		for items in range(8):
 			writer.writerow((str(it_list[items]),str(overall_test_average[items])))
 
-	with open('2_test_accuracy_results.csv','w+') as f:
+	with open('0_test_accuracy_results.csv','w+') as f:
 		writer = csv.writer(f,delimiter=',')
-		writer.writerow(("NUM_MALICIOUS_AGENTS","2_TEST_ACCURACY"))
+		writer.writerow(("NUM_MALICIOUS_AGENTS","0_TEST_ACCURACY"))
 		it_list = [0,1,5,10,15,20,25,30]
 		for items in range(8):
-			writer.writerow((str(it_list[items]),str(overall_2_average[items])))
-
+			writer.writerow((str(it_list[items]),str(overall_0_average[items])))
 
 	print("Overall",str(overall_test_average))
 	print("0 average",str(overall_0_average))
@@ -211,6 +210,4 @@ if __name__ == '__main__':
 	print("7 average",str(overall_7_average))
 	print("8 average",str(overall_8_average))
 	print("9 average",str(overall_9_average))
-
-
 
