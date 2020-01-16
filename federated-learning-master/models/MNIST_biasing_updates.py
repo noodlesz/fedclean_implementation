@@ -40,7 +40,11 @@ class LocalUpdate(object):
 
         #CUSTOM EXPERIMENTATION
         for items in self.ldr_train:
-            print(items)
+            print("FOUND")
+            print("FIRST")
+            print(items[0])
+            print("LAST")
+            print(items[1])
         ##
         epoch_loss = []
         for iter in range(self.args.local_ep):
