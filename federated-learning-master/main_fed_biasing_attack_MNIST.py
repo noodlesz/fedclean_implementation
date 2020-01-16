@@ -343,7 +343,7 @@ if __name__ == '__main__':
 
 
     # testing
-     net_glob.eval()
+    net_glob.eval()
     #print("Agent_Found_Count",agent_found_count)
     acc_train, loss_train, acc_train0,acc_train1,acc_train2,acc_train3,acc_train4,acc_train5,acc_train6,acc_train7,acc_train8,acc_train9,target_train_freq,correct_train_freq = test_img(net_glob, dataset_train, args)
     acc_test, loss_test, acc_test0,acc_test1,acc_test2,acc_test3,acc_test4,acc_test5,acc_test6,acc_test7,acc_test8,acc_test9,target_test_freq,correct_test_freq = test_img(net_glob, dataset_test, args)
