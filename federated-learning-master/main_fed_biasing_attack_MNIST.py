@@ -7,10 +7,11 @@ import numpy as np
 from torchvision import datasets, transforms
 import torch
 import random
+import csv
 
 from utils.sampling import mnist_iid, mnist_noniid, cifar_iid
 from utils.options import args_parser
-from models.Update import LocalUpdate
+from models.MNIST_biasing_updates import LocalUpdate
 from models.Nets import MLP, CNNMnist, CNNCifar
 from models.Fed import FedAvg
 from models.test import test_img
@@ -126,63 +127,30 @@ if __name__ == '__main__':
     #VIVEK constant attack experiment - 1 MALICIOUS
     loss_train_1 = []
     fixed_agent_1 = random.randint(0,31)  #random agent between 0 and 31 is fixed
-    updates_recorded_1 = False
-    fixed_agent_storage_1 = None
-    count_array_1 = []
 
     #VIVEK constant attack experiment - 5 MALICIOUS
     loss_train_5 = []
     fixed_agent_5 = random.sample(range(32),5)
-    updates_recorded_mapping_5 = defaultdict(bool)
-    for i in fixed_agent_5:
-        updates_recorded_mapping_5[i] = False  #KEY = agent no. & VAL = boolean
-    fixed_agent_storage_mapping_5 = {} #KEY = agent no. & VAL = Fixed Updates
-    count_array_5 = []
-
+ 
     #VIVEK constant attack experiment - 10 MALICIOUS
     loss_train_10 = []
     fixed_agent_10 = random.sample(range(32),10)
-    updates_recorded_mapping_10 = defaultdict(bool)
-    for i in fixed_agent_10:
-        updates_recorded_mapping_10[i] = False
-    fixed_agent_storage_mapping_10 = {}
-    count_array_10 = []
 
     #VIVEK constant attack experiment - 15 MALICIOUS
     loss_train_15 = []
     fixed_agent_15 = random.sample(range(32),15)
-    updates_recorded_mapping_15 = defaultdict(bool)
-    for i in fixed_agent_15:
-        updates_recorded_mapping_15[i] = False
-    fixed_agent_storage_mapping_15 = {}
-    count_array_15 = []
 
     #VIVEK constant attack experiment - 20 MALICIOUS
     loss_train_20 = []
     fixed_agent_20 = random.sample(range(32),20)
-    updates_recorded_mapping_20 = defaultdict(bool)
-    for i in fixed_agent_20:
-        updates_recorded_mapping_20[i] = False
-    fixed_agent_storage_mapping_20 = {}
-    count_array_20 = []
 
     #VIVEK constant attack experiment - 25 MALICIOUS
     loss_train_25 = []
     fixed_agent_25 = random.sample(range(32),25)
-    updates_recorded_mapping_25 = defaultdict(bool)
-    for i in fixed_agent_25:
-        updates_recorded_mapping_25[i] = False
-    fixed_agent_storage_mapping_25 = {}
-    count_array_25 = []
 
     #VIVEK constant attack experiment - 30 MALICIOUS
     loss_train_30 = []
     fixed_agent_30 = random.sample(range(32),30)
-    updates_recorded_mapping_30 = defaultdict(bool)
-    for i in fixed_agent_30:
-        updates_recorded_mapping_30[i] = False
-    fixed_agent_storage_mapping_30 = {}
-    count_array_30 = []
 
 
     for iter in range(args.epochs):
@@ -219,54 +187,55 @@ if __name__ == '__main__':
             print("***BLAH BLAH BLAH***")
 
 
-            if idx==fixed_agent_1:
-                if updates_recorded_1:
-                    w1 = copy.deepcopy(fixed_agent_storage_1)
-                elif not updates_recorded_1:
-                    fixed_agent_storage_1 = copy.deepcopy(w1)
-                    updates_recorded_1 = True
+            if idx == fixed_agent_1:
+                w1,loss1 = local1.train_biased(net=copy.deepcopy(net_glob1).to(args.device))
+                malicious_count[1]+=1
+
+            if idx != fixed_agent_1:
+                w1, loss1 = local1.train(net=copy.deepcopy(net_glob1).to(args.device))
 
             if idx in fixed_agent_5:
-                if updates_recorded_mapping_5[idx]:
-                    w5 = copy.deepcopy(fixed_agent_storage_mapping_5[idx])
-                elif not updates_recorded_mapping_5[idx]:
-                    fixed_agent_storage_mapping_5[idx] = copy.deepcopy(w5)
-                    updates_recorded_mapping_5[idx] = True
+                w5,loss5 = local5.train_biased(net=copy.deepcopy(net_glob5).to(args.device))
+                malicious_count[5]+=1
+
+            if idx not in fixed_agent_5:
+                w5, loss5 = local5.train(net=copy.deepcopy(net_glob5).to(args.device))
 
             if idx in fixed_agent_10:
-                if updates_recorded_mapping_10[idx]:
-                    w10 = copy.deepcopy(fixed_agent_storage_mapping_10[idx])
-                elif not updates_recorded_mapping_10[idx]:
-                    fixed_agent_storage_mapping_10[idx] = copy.deepcopy(w10)
-                    updates_recorded_mapping_10[idx] = True
+                w10,loss10 = local10.train_biased(net=copy.deepcopy(net_glob10).to(args.device))
+                malicious_count[10]+=1
+
+            if idx not in fixed_agent_10:
+                w10, loss10 = local10.train(net=copy.deepcopy(net_glob10).to(args.device))
 
             if idx in fixed_agent_15:
-                if updates_recorded_mapping_15[idx]:
-                    w15 = copy.deepcopy(fixed_agent_storage_mapping_15[idx])
-                elif not updates_recorded_mapping_15[idx]:
-                    fixed_agent_storage_mapping_15[idx] = copy.deepcopy(w15)
-                    updates_recorded_mapping_15[idx] = True
+                w15,loss15 = local15.train_biased(net=copy.deepcopy(net_glob15).to(args.device))
+                malicious_count[15]+=1
+
+            if idx not in fixed_agent_15:
+                w15, loss15 = local15.train(net=copy.deepcopy(net_glob15).to(args.device))
 
             if idx in fixed_agent_20:
-                if updates_recorded_mapping_20[idx]:
-                    w20 = copy.deepcopy(fixed_agent_storage_mapping_20[idx])
-                elif not updates_recorded_mapping_20[idx]:
-                    fixed_agent_storage_mapping_20[idx] = copy.deepcopy(w20)
-                    updates_recorded_mapping_20[idx] = True
+                w20,loss20 = local20.train_biased(net=copy.deepcopy(net_glob20).to(args.device))
+                malicious_count[20]+=1
+
+            if idx not in fixed_agent_20:
+                w20, loss20 = local20.train(net=copy.deepcopy(net_glob20).to(args.device))
 
             if idx in fixed_agent_25:
-                if updates_recorded_mapping_25[idx]:
-                    w25 = copy.deepcopy(fixed_agent_storage_mapping_25[idx])
-                elif not updates_recorded_mapping_25[idx]:
-                    fixed_agent_storage_mapping_25[idx] = copy.deepcopy(w25)
-                    updates_recorded_mapping_25[idx] = True
+                w25,loss25 = local25.train_biased(net=copy.deepcopy(net_glob25).to(args.device))
+                malicious_count[25]+=1
+
+            if idx not in fixed_agent_25:
+                w25, loss25 = local25.train(net=copy.deepcopy(net_glob25).to(args.device))
 
             if idx in fixed_agent_30:
-                if updates_recorded_mapping_30[idx]:
-                    w30 = copy.deepcopy(fixed_agent_storage_mapping_30[idx])
-                elif not updates_recorded_mapping_30[idx]:
-                    fixed_agent_storage_mapping_30[idx] = copy.deepcopy(w30)
-                    updates_recorded_mapping_30[idx] = True
+                w30,loss30 = local30.train_biased(net=copy.deepcopy(net_glob30).to(args.device))
+                malicious_count[30]+=1
+
+            if idx not in fixed_agent_30:
+                w30, loss30 = local30.train(net=copy.deepcopy(net_glob30).to(args.device))
+
 
 
             #NO ATTACK
