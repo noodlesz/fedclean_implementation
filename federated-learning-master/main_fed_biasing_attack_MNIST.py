@@ -153,6 +153,8 @@ if __name__ == '__main__':
     fixed_agent_30 = random.sample(range(32),30)
 
 
+    malicious_dict = {1:[fixed_agent_1],5:fixed_agent_5,10:fixed_agent_10,15:fixed_agent_15,20:fixed_agent_20,25:fixed_agent_25,30:fixed_agent_30}
+    malicious_count ={1:0,5:0,10:0,15:0,20:0,25:0,30:0}
     for iter in range(args.epochs):
         #agent_found_count = 0
         w_locals, loss_locals = [], []          #w_locals = array of local_weights
