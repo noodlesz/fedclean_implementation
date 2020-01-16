@@ -39,6 +39,36 @@ if __name__ == '__main__':
         trans_cifar = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
         dataset_train = datasets.CIFAR10('data/cifar', train=True, download=True, transform=trans_cifar)
         dataset_test = datasets.CIFAR10('data/cifar', train=False, download=True, transform=trans_cifar)
+        
+        ###
+        #ANALYZING DATA FOR BIASING ATTACK
+        train_count_dict = {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0}
+        test_count_dict = {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0}
+
+        train_length = len(dataset_train)
+        test_length = len(dataset_test)
+
+        print("TRAIN LENGTH",train_length)
+        print("TEST LENGTH",test_length)
+
+        for items in dataset_train:
+            train_count_dict[items[1]]+=1
+        for items in dataset_test:
+            test_count_dict[items[1]]+=1
+
+        print(train_count_dict)
+        train_sum = 0
+        for items in train_count_dict.keys():
+            train_sum+=train_count_dict[items]
+        print("TRAIN SUM",train_sum)
+        print(test_count_dict)
+        test_sum = 0
+        for items in test_count_dict.keys():
+            test_sum+=test_count_dict[items]
+        print("TEST SUM",test_sum)
+        ###ANALYZING END
+        ###
+
         if args.iid:
             dict_users = cifar_iid(dataset_train, args.num_users)
         else:
