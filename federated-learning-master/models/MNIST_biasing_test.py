@@ -18,6 +18,7 @@ def test_img(net_g, datatest, args):
     correct_0,correct_1,correct_2,correct_3,correct_4,correct_5,correct_6,correct_7,correct_8,correct_9 = 0,0,0,0,0,0,0,0,0,0
     total_0,total_1,total_2,total_3,total_4,total_5,total_6,total_7,total_8,total_9 = 0,0,0,0,0,0,0,0,0,0
 
+    prediction_frequency = {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0}
 
     data_loader = DataLoader(datatest, batch_size=args.bs)
     l = len(data_loader)
@@ -31,6 +32,38 @@ def test_img(net_g, datatest, args):
         y_pred = log_probs.data.max(1, keepdim=True)[1]
         #print(len(target))
         #print(y_pred)
+
+        for i in range(len(target)):
+            if y_pred[i][0] == 0:
+                prediction_frequency[0]+=1
+
+            if y_pred[i][0] == 1:
+                prediction_frequency[1]+=1
+
+            if y_pred[i][0] == 2:
+                prediction_frequency[2]+=1
+
+            if y_pred[i][0] == 3:
+                prediction_frequency[3]+=1
+
+            if y_pred[i][0] == 4:
+                prediction_frequency[4]+=1
+
+            if y_pred[i][0] == 5:
+                prediction_frequency[5]+=1
+
+            if y_pred[i][0] == 6:
+                prediction_frequency[6]+=1
+
+            if y_pred[i][0] == 7:
+                prediction_frequency[7]+=1
+
+            if y_pred[i][0] ==8:
+                prediction_frequency[8]+=1
+
+            if y_pred[i][0] == 9:
+                prediction_frequency[9]+=1 
+
 
         for i in range(len(target)):
             if target[i] == 0:
@@ -103,4 +136,4 @@ def test_img(net_g, datatest, args):
     if args.verbose:
         print('\nTest set: Average loss: {:.4f} \nAccuracy: {}/{} ({:.2f}%)\n'.format(
             test_loss, correct, len(data_loader.dataset), accuracy))
-    return accuracy, test_loss, accuracy_0, accuracy_1, accuracy_2, accuracy_3,accuracy_4,accuracy_5,accuracy_6,accuracy_7,accuracy_8,accuracy_9,target_freq,correct_freq
+    return accuracy, test_loss, accuracy_0, accuracy_1, accuracy_2, accuracy_3,accuracy_4,accuracy_5,accuracy_6,accuracy_7,accuracy_8,accuracy_9,target_freq,correct_freq,prediction_frequency

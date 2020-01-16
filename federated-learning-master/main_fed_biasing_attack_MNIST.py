@@ -345,8 +345,8 @@ if __name__ == '__main__':
     # testing
     net_glob.eval()
     #print("Agent_Found_Count",agent_found_count)
-    acc_train, loss_train, acc_train0,acc_train1,acc_train2,acc_train3,acc_train4,acc_train5,acc_train6,acc_train7,acc_train8,acc_train9,target_train_freq,correct_train_freq = test_img(net_glob, dataset_train, args)
-    acc_test, loss_test, acc_test0,acc_test1,acc_test2,acc_test3,acc_test4,acc_test5,acc_test6,acc_test7,acc_test8,acc_test9,target_test_freq,correct_test_freq = test_img(net_glob, dataset_test, args)
+    acc_train, loss_train, acc_train0,acc_train1,acc_train2,acc_train3,acc_train4,acc_train5,acc_train6,acc_train7,acc_train8,acc_train9,target_train_freq,correct_train_freq,prediction_train_freq = test_img(net_glob, dataset_train, args)
+    acc_test, loss_test, acc_test0,acc_test1,acc_test2,acc_test3,acc_test4,acc_test5,acc_test6,acc_test7,acc_test8,acc_test9,target_test_freq,correct_test_freq,prediction_test_freq = test_img(net_glob, dataset_test, args)
     print("Training accuracy (NO ATTACK): {:.2f}".format(acc_train))
     print("Testing accuracy (NO ATTACK): {:.2f}".format(acc_test))
     print("Training accuracy-5 (NO ATTACK): {:.2f}".format(acc_train5))
@@ -354,8 +354,8 @@ if __name__ == '__main__':
     print("\n")
 
     net_glob1.eval()
-    acc_train_1, loss_train_1, acc_train0_1,acc_train1_1,acc_train2_1,acc_train3_1,acc_train4_1,acc_train5_1,acc_train6_1,acc_train7_1,acc_train8_1,acc_train9_1,target_train_freq_1,correct_train_freq_1 = test_img(net_glob1, dataset_train, args)
-    acc_test_1, loss_test_1, acc_test0_1,acc_test1_1,acc_test2_1,acc_test3_1,acc_test4_1,acc_test5_1,acc_test6_1,acc_test7_1,acc_test8_1,acc_test9_1,target_test_freq_1,correct_test_freq_1 = test_img(net_glob1, dataset_test, args)
+    acc_train_1, loss_train_1, acc_train0_1,acc_train1_1,acc_train2_1,acc_train3_1,acc_train4_1,acc_train5_1,acc_train6_1,acc_train7_1,acc_train8_1,acc_train9_1,target_train_freq_1,correct_train_freq_1,prediction_train_freq_1 = test_img(net_glob1, dataset_train, args)
+    acc_test_1, loss_test_1, acc_test0_1,acc_test1_1,acc_test2_1,acc_test3_1,acc_test4_1,acc_test5_1,acc_test6_1,acc_test7_1,acc_test8_1,acc_test9_1,target_test_freq_1,correct_test_freq_1,prediction_test_freq_1 = test_img(net_glob1, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 1): {:.2f}".format(acc_train_1))
     print("Testing accuracy (LABEL FLIPPED 1): {:.2f}".format(acc_test_1))
     print("Training accuracy-5 (LABEL FLIPPED 1): {:.2f}".format(acc_train5_1))
@@ -363,8 +363,8 @@ if __name__ == '__main__':
     print("\n")
 
     net_glob5.eval()
-    acc_train_5, loss_train_5, acc_train0_5,acc_train1_5,acc_train2_5,acc_train3_5,acc_train4_5,acc_train5_5,acc_train6_5,acc_train7_5,acc_train8_5,acc_train9_5,target_train_freq_5,correct_train_freq_5 = test_img(net_glob5, dataset_train, args)
-    acc_test_5, loss_test_5, acc_test0_5,acc_test1_5,acc_test2_5,acc_test3_5,acc_test4_5,acc_test5_5,acc_test6_5,acc_test7_5,acc_test8_5,acc_test9_5,target_test_freq_5,correct_test_freq_5 = test_img(net_glob5, dataset_test, args)
+    acc_train_5, loss_train_5, acc_train0_5,acc_train1_5,acc_train2_5,acc_train3_5,acc_train4_5,acc_train5_5,acc_train6_5,acc_train7_5,acc_train8_5,acc_train9_5,target_train_freq_5,correct_train_freq_5,prediction_train_freq_5 = test_img(net_glob5, dataset_train, args)
+    acc_test_5, loss_test_5, acc_test0_5,acc_test1_5,acc_test2_5,acc_test3_5,acc_test4_5,acc_test5_5,acc_test6_5,acc_test7_5,acc_test8_5,acc_test9_5,target_test_freq_5,correct_test_freq_5,prediction_test_freq_5 = test_img(net_glob5, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 5): {:.2f}".format(acc_train_5))
     print("Testing accuracy (LABEL FLIPPED 5): {:.2f}".format(acc_test_5))
     print("Training accuracy-5 (LABEL FLIPPED 5): {:.2f}".format(acc_train5_5))
@@ -372,8 +372,8 @@ if __name__ == '__main__':
     print("\n")
 
     net_glob10.eval()
-    acc_train_10, loss_train_10, acc_train0_10,acc_train1_10,acc_train2_10,acc_train3_10,acc_train4_10,acc_train5_10,acc_train6_10,acc_train7_10,acc_train8_10,acc_train9_10,target_train_freq_10,correct_train_freq_10 = test_img(net_glob10, dataset_train, args)
-    acc_test_10, loss_test_10, acc_test0_10,acc_test1_10,acc_test2_10,acc_test3_10,acc_test4_10,acc_test5_10,acc_test6_10,acc_test7_10,acc_test8_10,acc_test9_10,target_test_freq_10,correct_test_freq_10 = test_img(net_glob10, dataset_test, args)
+    acc_train_10, loss_train_10, acc_train0_10,acc_train1_10,acc_train2_10,acc_train3_10,acc_train4_10,acc_train5_10,acc_train6_10,acc_train7_10,acc_train8_10,acc_train9_10,target_train_freq_10,correct_train_freq_10,prediction_train_freq_10 = test_img(net_glob10, dataset_train, args)
+    acc_test_10, loss_test_10, acc_test0_10,acc_test1_10,acc_test2_10,acc_test3_10,acc_test4_10,acc_test5_10,acc_test6_10,acc_test7_10,acc_test8_10,acc_test9_10,target_test_freq_10,correct_test_freq_10,prediction_test_freq_10 = test_img(net_glob10, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 10): {:.2f}".format(acc_train_10))
     print("Testing accuracy (LABEL FLIPPED 10): {:.2f}".format(acc_test_10))
     print("Training accuracy-5 (LABEL FLIPPED 10): {:.2f}".format(acc_train5_10))
@@ -381,8 +381,8 @@ if __name__ == '__main__':
     print("\n")
 
     net_glob15.eval()
-    acc_train_15, loss_train_15, acc_train0_15,acc_train1_15,acc_train2_15,acc_train3_15,acc_train4_15,acc_train5_15,acc_train6_15,acc_train7_15,acc_train8_15,acc_train9_15,target_train_freq_15,correct_train_freq_15 = test_img(net_glob15, dataset_train, args)
-    acc_test_15, loss_test_15, acc_test0_15,acc_test1_15,acc_test2_15,acc_test3_15,acc_test4_15,acc_test5_15,acc_test6_15,acc_test7_15,acc_test8_15,acc_test9_15,target_test_freq_15,correct_test_freq_15 = test_img(net_glob15, dataset_test, args)
+    acc_train_15, loss_train_15, acc_train0_15,acc_train1_15,acc_train2_15,acc_train3_15,acc_train4_15,acc_train5_15,acc_train6_15,acc_train7_15,acc_train8_15,acc_train9_15,target_train_freq_15,correct_train_freq_15,prediction_train_freq_15 = test_img(net_glob15, dataset_train, args)
+    acc_test_15, loss_test_15, acc_test0_15,acc_test1_15,acc_test2_15,acc_test3_15,acc_test4_15,acc_test5_15,acc_test6_15,acc_test7_15,acc_test8_15,acc_test9_15,target_test_freq_15,correct_test_freq_15,prediction_test_freq_15 = test_img(net_glob15, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 15): {:.2f}".format(acc_train_15))
     print("Testing accuracy (LABEL FLIPPED 15): {:.2f}".format(acc_test_15))
     print("Training accuracy-5 (LABEL FLIPPED 15): {:.2f}".format(acc_train5_15))
@@ -390,8 +390,8 @@ if __name__ == '__main__':
     print("\n")
 
     net_glob20.eval()
-    acc_train_20, loss_train_20, acc_train0_20,acc_train1_20,acc_train2_20,acc_train3_20,acc_train4_20,acc_train5_20,acc_train6_20,acc_train7_20,acc_train8_20,acc_train9_20,target_train_freq_20,correct_train_freq_20 = test_img(net_glob20, dataset_train, args)
-    acc_test_20, loss_test_20, acc_test0_20,acc_test1_20,acc_test2_20,acc_test3_20,acc_test4_20,acc_test5_20,acc_test6_20,acc_test7_20,acc_test8_20,acc_test9_20,target_test_freq_20,correct_test_freq_20 = test_img(net_glob20, dataset_test, args)
+    acc_train_20, loss_train_20, acc_train0_20,acc_train1_20,acc_train2_20,acc_train3_20,acc_train4_20,acc_train5_20,acc_train6_20,acc_train7_20,acc_train8_20,acc_train9_20,target_train_freq_20,correct_train_freq_20,prediction_train_freq_20 = test_img(net_glob20, dataset_train, args)
+    acc_test_20, loss_test_20, acc_test0_20,acc_test1_20,acc_test2_20,acc_test3_20,acc_test4_20,acc_test5_20,acc_test6_20,acc_test7_20,acc_test8_20,acc_test9_20,target_test_freq_20,correct_test_freq_20,prediction_test_freq_20 = test_img(net_glob20, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 20): {:.2f}".format(acc_train_20))
     print("Testing accuracy (LABEL FLIPPED 20): {:.2f}".format(acc_test_20))
     print("Training accuracy-5 (LABEL FLIPPED 20): {:.2f}".format(acc_train5_20))
@@ -399,8 +399,8 @@ if __name__ == '__main__':
     print("\n")
 
     net_glob25.eval()
-    acc_train_25, loss_train_25, acc_train0_25,acc_train1_25,acc_train2_25,acc_train3_25,acc_train4_25,acc_train5_25,acc_train6_25,acc_train7_25,acc_train8_25,acc_train9_25,target_train_freq_25,correct_train_freq_25 = test_img(net_glob25, dataset_train, args)
-    acc_test_25, loss_test_25, acc_test0_25,acc_test1_25,acc_test2_25, acc_test3_25,acc_test4_25,acc_test5_25,acc_test6_25,acc_test7_25,acc_test8_25,acc_test9_25,target_test_freq_25,correct_test_freq_25 = test_img(net_glob25, dataset_test, args)
+    acc_train_25, loss_train_25, acc_train0_25,acc_train1_25,acc_train2_25,acc_train3_25,acc_train4_25,acc_train5_25,acc_train6_25,acc_train7_25,acc_train8_25,acc_train9_25,target_train_freq_25,correct_train_freq_25,prediction_train_freq_25 = test_img(net_glob25, dataset_train, args)
+    acc_test_25, loss_test_25, acc_test0_25,acc_test1_25,acc_test2_25, acc_test3_25,acc_test4_25,acc_test5_25,acc_test6_25,acc_test7_25,acc_test8_25,acc_test9_25,target_test_freq_25,correct_test_freq_25,prediction_test_freq_25 = test_img(net_glob25, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 25): {:.2f}".format(acc_train_25))
     print("Testing accuracy (LABEL FLIPPED 25): {:.2f}".format(acc_test_25))
     print("Training accuracy-5 (LABEL FLIPPED 25): {:.2f}".format(acc_train5_25))
@@ -408,13 +408,27 @@ if __name__ == '__main__':
     print("\n")
 
     net_glob30.eval()
-    acc_train_30, loss_train_30, acc_train0_30,acc_train1_30,acc_train2_30,acc_train3_30,acc_train4_30,acc_train5_30,acc_train6_30,acc_train7_30,acc_train8_30,acc_train9_30,target_train_freq_30,correct_train_freq_30 = test_img(net_glob30, dataset_train, args)
-    acc_test_30, loss_test_30, acc_test0_30,acc_test1_30,acc_test2_30,acc_test3_30,acc_test4_30,acc_test5_30,acc_test6_30,acc_test7_30,acc_test8_30,acc_test9_30,target_test_freq_30,correct_test_freq_30 = test_img(net_glob30, dataset_test, args)
+    acc_train_30, loss_train_30, acc_train0_30,acc_train1_30,acc_train2_30,acc_train3_30,acc_train4_30,acc_train5_30,acc_train6_30,acc_train7_30,acc_train8_30,acc_train9_30,target_train_freq_30,correct_train_freq_30,prediction_train_freq_30 = test_img(net_glob30, dataset_train, args)
+    acc_test_30, loss_test_30, acc_test0_30,acc_test1_30,acc_test2_30,acc_test3_30,acc_test4_30,acc_test5_30,acc_test6_30,acc_test7_30,acc_test8_30,acc_test9_30,target_test_freq_30,correct_test_freq_30,prediction_test_freq_30 = test_img(net_glob30, dataset_test, args)
     print("Training accuracy (LABEL FLIPPED 30): {:.2f}".format(acc_train_30))
     print("Testing accuracy (LABEL FLIPPED 30): {:.2f}".format(acc_test_30))
     print("Training accuracy-5 (LABEL FLIPPED 30): {:.2f}".format(acc_train5_30))
     print("Testing accuracy-5 (LABEL FLIPPED 30): {:.2f}".format(acc_test5_30))
     print("\n")
+
+    with open("biasing_prediction_freq_data.csv","w") as csv_file:
+        writer = csv.writer(csv_file,delimiter=',')
+        #FIXME - continue from here
+        writer.writerow(("PREDICTED_0","PREDICTED_1","PREDICTED_2","PREDICTED_3","PREDICTED_4","PREDICTED_5","PREDICTED_6","PREDICTED_7","PREDICTED_8","PREDICTED_9"))
+        writer.writerow((prediction_test_freq[0],prediction_test_freq[1],prediction_test_freq[2],prediction_test_freq[3],prediction_test_freq[4],prediction_test_freq[5],prediction_test_freq[6],prediction_test_freq[7],prediction_test_freq[8],prediction_test_freq[9]))
+        writer.writerow((prediction_test_freq_1[0],prediction_test_freq_1[1],prediction_test_freq_1[2],prediction_test_freq_1[3],prediction_test_freq_1[4],prediction_test_freq_1[5],prediction_test_freq_1[6],prediction_test_freq_1[7],prediction_test_freq_1[8],prediction_test_freq_1[9]))
+        writer.writerow((prediction_test_freq_5[0],prediction_test_freq_5[1],prediction_test_freq_5[2],prediction_test_freq_5[3],prediction_test_freq_5[4],prediction_test_freq_5[5],prediction_test_freq_5[6],prediction_test_freq_5[7],prediction_test_freq_5[8],prediction_test_freq_5[9]))
+        writer.writerow((prediction_test_freq_10[0],prediction_test_freq_10[1],prediction_test_freq_10[2],prediction_test_freq_10[3],prediction_test_freq_10[4],prediction_test_freq_10[5],prediction_test_freq_10[6],prediction_test_freq_10[7],prediction_test_freq_10[8],prediction_test_freq_10[9]))
+        writer.writerow((prediction_test_freq_15[0],prediction_test_freq_15[1],prediction_test_freq_15[2],prediction_test_freq_15[3],prediction_test_freq_15[4],prediction_test_freq_15[5],prediction_test_freq_15[6],prediction_test_freq_15[7],prediction_test_freq_15[8],prediction_test_freq_15[9]))
+        writer.writerow((prediction_test_freq_20[0],prediction_test_freq_20[1],prediction_test_freq_20[2],prediction_test_freq_20[3],prediction_test_freq_20[4],prediction_test_freq_20[5],prediction_test_freq_20[6],prediction_test_freq_20[7],prediction_test_freq_20[8],prediction_test_freq_20[9]))
+        writer.writerow((prediction_test_freq_25[0],prediction_test_freq_25[1],prediction_test_freq_25[2],prediction_test_freq_25[3],prediction_test_freq_25[4],prediction_test_freq_25[5],prediction_test_freq_25[6],prediction_test_freq_25[7],prediction_test_freq_25[8],prediction_test_freq_25[9]))
+        writer.writerow((prediction_test_freq_30[0],prediction_test_freq_30[1],prediction_test_freq_30[2],prediction_test_freq_30[3],prediction_test_freq_30[4],prediction_test_freq_30[5],prediction_test_freq_30[6],prediction_test_freq_30[7],prediction_test_freq_30[8],prediction_test_freq_30[9]))
+
 
     with open("biasing_final_data.csv", "w") as csv_file:
         writer = csv.writer(csv_file,delimiter=',')
