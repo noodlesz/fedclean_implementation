@@ -416,7 +416,7 @@ if __name__ == '__main__':
     print("Testing accuracy-5 (LABEL FLIPPED 30): {:.2f}".format(acc_test5_30))
     print("\n")
 
-    with open("label_flipped_final_data.csv", "w") as csv_file:
+    with open("biasing_final_data.csv", "w") as csv_file:
         writer = csv.writer(csv_file,delimiter=',')
         writer.writerow(("OVERALL_TRAIN_ACCURACY","OVERALL_TEST_ACCURACY","TRAIN_ACC_0","TEST_ACC_0","TRAIN_ACC_1","TEST_ACC_1","TRAIN_ACC_2","TEST_ACC_2","TRAIN_ACC_3","TEST_ACC_3","TRAIN_ACC_4","TEST_ACC_4","TRAIN_ACC_5","TEST_ACC_5","TRAIN_ACC_6","TEST_ACC_6","TRAIN_ACC_7","TEST_ACC_7","TRAIN_ACC_8","TEST_ACCURACY_8","TRAIN_ACCURACY_9","TEST_ACCURACY_9"))
         writer.writerow((acc_train.item(),acc_test.item(),acc_train0,acc_test0,acc_train1,acc_test1,acc_train2,acc_test2,acc_train3,acc_test3,acc_train4,acc_test4,acc_train5,acc_test5,acc_train6,acc_test6,acc_train7,acc_test7,acc_train8,acc_test8,acc_train9,acc_test9))
@@ -429,7 +429,7 @@ if __name__ == '__main__':
         writer.writerow((acc_train_30.item(),acc_test_30.item(),acc_train0_30,acc_test0_30,acc_train1_30,acc_test1_30,acc_train2_30,acc_test2_30,acc_train3_30,acc_test3_30,acc_train4_30,acc_test4_30,acc_train5_30,acc_test5_30,acc_train6_30,acc_test6_30,acc_train7_30,acc_test7_30,acc_train8_30,acc_test8_30,acc_train9_30,acc_test9_30))
 
 
-    with open("label_flipped_frequency_data.csv","w") as f:
+    with open("biasing_frequency_data.csv","w") as f:
         writer = csv.writer(f,delimiter=',')
         writer.writerow(("TOTAL_TRAIN_0","CORRECT_TRAIN_0","TOTAL_TEST_0","CORRECT_TEST_0","TOTAL_TRAIN_1","CORRECT_TRAIN_1","TOTAL_TEST_1","CORRECT_TEST_1","TOTAL_TRAIN_2","CORRECT_TRAIN_2","TOTAL_TEST_2","CORRECT_TEST_2","TOTAL_TRAIN_3","CORRECT_TRAIN_3","TOTAL_TEST_3","CORECT_TEST_3","TOTAL_TRAIN_4","CORRECT_TRAIN_4","TOTAL_TEST_4","CORRECT_TEST_4","TOTAL_TRAIN_5","CORRECT_TRAIN_5","TOTAL_TEST_5","CORRECT_TEST_5","TOTAL_TRAIN_6","CORRECT_TRAIN_6","TOTAL_TEST_6","CORRECT_TEST_6","TOTAL_TRAIN_7","CORRECT_TRAIN_7","TOTAL_TEST_7","CORRECT_TEST_7","TOTAL_TRAIN_8","CORRECT_TRAIN_8","TOTAL_TEST_8","CORRECT_TEST_8","TOTAL_TRAIN_9","CORRECT_TRAIN_9","TOTAL_TEST_9","CORRECT_TEST_9"))
         writer.writerow((target_train_freq[0],correct_train_freq[0],target_test_freq[0],correct_test_freq[0],target_train_freq[1],correct_train_freq[1],target_test_freq[1],correct_test_freq[1],target_train_freq[2],correct_train_freq[2],target_test_freq[2],correct_test_freq[2],target_train_freq[3],correct_test_freq[3],target_test_freq[3],correct_test_freq[3],target_train_freq[4],correct_train_freq[4],target_test_freq[4],correct_test_freq[4],target_train_freq[5],correct_train_freq[5],target_test_freq[5],correct_test_freq[5],target_train_freq[6],correct_train_freq[6],target_test_freq[6],correct_test_freq[6],target_train_freq[7],correct_train_freq[7],target_test_freq[7],correct_test_freq[7],target_train_freq[8],correct_train_freq[8],target_test_freq[8],correct_test_freq[8],target_train_freq[9],correct_train_freq[9],target_test_freq[9],correct_test_freq[9]))
