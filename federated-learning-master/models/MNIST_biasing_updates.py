@@ -51,8 +51,8 @@ class LocalUpdate(object):
                 train_set_dict[int(vals)]+=1
 
         for imps in train_set_dict.keys():
-            percentage_dict[imps]=train_set_dict[imps]/1875
-            contributor_num_dict[imps] = round(percentage_dict[imps]*188)
+            percentage_dict[imps]=train_set_dict[imps]/sum_samples
+            contributor_num_dict[imps] = round(percentage_dict[imps]*round(req_percentage*sum_samples))
 
         #print("ATTENTION")
         #print(contributor_num_dict)
