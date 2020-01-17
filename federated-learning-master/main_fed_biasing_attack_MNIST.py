@@ -418,17 +418,18 @@ if __name__ == '__main__':
 
     with open("biasing_prediction_freq_data.csv","w") as csv_file:
         writer = csv.writer(csv_file,delimiter=',')
-        #FIXME - continue from here
-        writer.writerow(("PREDICTED_0","PREDICTED_1","PREDICTED_2","PREDICTED_3","PREDICTED_4","PREDICTED_5","PREDICTED_6","PREDICTED_7","PREDICTED_8","PREDICTED_9"))
-        writer.writerow((prediction_test_freq[0],prediction_test_freq[1],prediction_test_freq[2],prediction_test_freq[3],prediction_test_freq[4],prediction_test_freq[5],prediction_test_freq[6],prediction_test_freq[7],prediction_test_freq[8],prediction_test_freq[9]))
-        writer.writerow((prediction_test_freq_1[0],prediction_test_freq_1[1],prediction_test_freq_1[2],prediction_test_freq_1[3],prediction_test_freq_1[4],prediction_test_freq_1[5],prediction_test_freq_1[6],prediction_test_freq_1[7],prediction_test_freq_1[8],prediction_test_freq_1[9]))
-        writer.writerow((prediction_test_freq_5[0],prediction_test_freq_5[1],prediction_test_freq_5[2],prediction_test_freq_5[3],prediction_test_freq_5[4],prediction_test_freq_5[5],prediction_test_freq_5[6],prediction_test_freq_5[7],prediction_test_freq_5[8],prediction_test_freq_5[9]))
-        writer.writerow((prediction_test_freq_10[0],prediction_test_freq_10[1],prediction_test_freq_10[2],prediction_test_freq_10[3],prediction_test_freq_10[4],prediction_test_freq_10[5],prediction_test_freq_10[6],prediction_test_freq_10[7],prediction_test_freq_10[8],prediction_test_freq_10[9]))
-        writer.writerow((prediction_test_freq_15[0],prediction_test_freq_15[1],prediction_test_freq_15[2],prediction_test_freq_15[3],prediction_test_freq_15[4],prediction_test_freq_15[5],prediction_test_freq_15[6],prediction_test_freq_15[7],prediction_test_freq_15[8],prediction_test_freq_15[9]))
-        writer.writerow((prediction_test_freq_20[0],prediction_test_freq_20[1],prediction_test_freq_20[2],prediction_test_freq_20[3],prediction_test_freq_20[4],prediction_test_freq_20[5],prediction_test_freq_20[6],prediction_test_freq_20[7],prediction_test_freq_20[8],prediction_test_freq_20[9]))
-        writer.writerow((prediction_test_freq_25[0],prediction_test_freq_25[1],prediction_test_freq_25[2],prediction_test_freq_25[3],prediction_test_freq_25[4],prediction_test_freq_25[5],prediction_test_freq_25[6],prediction_test_freq_25[7],prediction_test_freq_25[8],prediction_test_freq_25[9]))
-        writer.writerow((prediction_test_freq_30[0],prediction_test_freq_30[1],prediction_test_freq_30[2],prediction_test_freq_30[3],prediction_test_freq_30[4],prediction_test_freq_30[5],prediction_test_freq_30[6],prediction_test_freq_30[7],prediction_test_freq_30[8],prediction_test_freq_30[9]))
 
+        writer.writerow(("DIGIT","ORIGINAL_FREQUENCY","0_ATTACK","1_ATTACK","5_ATTACK","10_ATTACK","15_ATTACK","20_ATTACK","25_ATTACK","30_ATTACK"))
+        writer.writerow(("0","980",prediction_test_freq[0],prediction_test_freq_1[0],prediction_test_freq_5[0],prediction_test_freq_10[0],prediction_test_freq_15[0],prediction_test_freq_20[0],prediction_test_freq_25[0],prediction_test_freq_30[0]))
+        writer.writerow(("1","1135",prediction_test_freq[1],prediction_test_freq_1[1],prediction_test_freq_5[1],prediction_test_freq_10[1],prediction_test_freq_15[1],prediction_test_freq_20[1],prediction_test_freq_25[1],prediction_test_freq_30[1]))
+        writer.writerow(("2","1032",prediction_test_freq[2],prediction_test_freq_1[2],prediction_test_freq_5[2],prediction_test_freq_10[2],prediction_test_freq_15[2],prediction_test_freq_20[2],prediction_test_freq_25[2],prediction_test_freq_30[2]))  
+        writer.writerow(("3","1010",prediction_test_freq[3],prediction_test_freq_1[3],prediction_test_freq_5[3],prediction_test_freq_10[3],prediction_test_freq_15[3],prediction_test_freq_20[3],prediction_test_freq_25[3],prediction_test_freq_30[3]))
+        writer.writerow(("4","982",prediction_test_freq[4],prediction_test_freq_1[4],prediction_test_freq_5[4],prediction_test_freq_10[4],prediction_test_freq_15[4],prediction_test_freq_20[4],prediction_test_freq_25[4],prediction_test_freq_30[4]))
+        writer.writerow(("5","892",prediction_test_freq[5],prediction_test_freq_1[5],prediction_test_freq_5[5],prediction_test_freq_10[5],prediction_test_freq_15[5],prediction_test_freq_20[5],prediction_test_freq_25[5],prediction_test_freq_30[5]))
+        writer.writerow(("6","958",prediction_test_freq[6],prediction_test_freq_1[6],prediction_test_freq_5[6],prediction_test_freq_10[6],prediction_test_freq_15[6],prediction_test_freq_20[6],prediction_test_freq_25[6],prediction_test_freq_30[6]))
+        writer.writerow(("7","1028",prediction_test_freq[7],prediction_test_freq_1[7],prediction_test_freq_5[7],prediction_test_freq_10[7],prediction_test_freq_15[7],prediction_test_freq_20[7],prediction_test_freq_25[7],prediction_test_freq_30[7]))
+        writer.writerow(("8","974",prediction_test_freq[8],prediction_test_freq_1[8],prediction_test_freq_5[8],prediction_test_freq_10[8],prediction_test_freq_15[8],prediction_test_freq_20[8],prediction_test_freq_25[8],prediction_test_freq_30[8]))
+        writer.writerow(("9","1009",prediction_test_freq[9],prediction_test_freq_1[9],prediction_test_freq_5[9],prediction_test_freq_10[9],prediction_test_freq_15[9],prediction_test_freq_20[9],prediction_test_freq_25[9],prediction_test_freq_30[9]))
 
     with open("biasing_final_data.csv", "w") as csv_file:
         writer = csv.writer(csv_file,delimiter=',')
