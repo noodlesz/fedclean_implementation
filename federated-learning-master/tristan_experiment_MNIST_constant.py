@@ -260,8 +260,8 @@ if __name__ == '__main__':
         loss_avg_10 = sum(loss_locals_10) / len(loss_locals_10)
 
         non_malicious_structure[iter][0] = loss_avg
-        non_malicious_structure5[iter][0] = loss_avg5
-        non_malicious_structure10[iter][0] = loss_avg10
+        non_malicious_structure5[iter][0] = loss_avg_5
+        non_malicious_structure10[iter][0] = loss_avg_10
 
         malicious_structure5[iter][0] = loss_avg5
         malicious_structure10[iter][0] = loss_avg10
@@ -290,32 +290,32 @@ if __name__ == '__main__':
     print("10 ATTACK DATA=",loss_train_10)
 
 
-    with open("no_malicious_records.csv") as csv_file:
+    with open("no_malicious_records.csv","w+") as csv_file:
         writer = csv.writer(csv_file,delimiter=',')
         writer.writerow(("ROUND","TRAIN_LOSS","AGENT_UPDATES"))
         for items in non_malicious_structure.keys():
             writer.writerow((str(items),str(non_malicious_structure[items][0]),str(non_malicious_structure[items][1])))
 
-    with open("5_no_malicious_records.csv") as csv_file:
+    with open("5_no_malicious_records.csv","w+") as csv_file:
         writer = csv.writer(csv_file,delimiter=',')
         writer.writerow(("ROUND","TRAIN_LOSS","AGENT_UPDATES"))
         for items in non_malicious_structure5.keys():
             writer.writerow((str(items),str(non_malicious_structure5[items][0]),str(non_malicious_structure5[items][1])))
 
      
-    with open("10_no_malicious_records.csv") as csv_file:
+    with open("10_no_malicious_records.csv","w+") as csv_file:
         writer = csv.writer(csv_file,delimiter=',')
         writer.writerow(("ROUND","TRAIN_LOSS","AGENT_UPDATES"))
         for items in non_malicious_structure10.keys():
             writer.writerow((str(items),str(non_malicious_structure10[items][0]),str(non_malicious_structure10[items][1])))
 
-    with open("5_malicious_records.csv") as csv_file:
+    with open("5_malicious_records.csv","w+") as csv_file:
         writer = csv.writer(csv_file,delimiter=',')
         writer.writerow(("ROUND","TRAIN_LOSS","AGENT_UPDATES"))
         for items in malicious_structure5.keys():
             writer.writerow((str(items),str(malicious_structure5[items][0]),str(malicious_structure5[items][1])))
 
-    with open("10_malicious_records.csv") as csv_file:
+    with open("10_malicious_records.csv","w+") as csv_file:
         writer = csv.writer(csv_file,delimiter=',')
         writer.writerow(("ROUND","TRAIN_LOSS","AGENT_UPDATES"))
         for items in malicious_structure10.keys():
