@@ -260,11 +260,11 @@ if __name__ == '__main__':
         loss_avg_10 = sum(loss_locals_10) / len(loss_locals_10)
 
         non_malicious_structure[iter][0] = loss_avg
-        non_malicious_structure5[iter][0] = loss_avg5
-        non_malicious_structure10[iter][0] = loss_avg10
+        non_malicious_structure5[iter][0] = loss_avg_5
+        non_malicious_structure10[iter][0] = loss_avg_10
 
-        malicious_structure5[iter][0] = loss_avg5
-        malicious_structure10[iter][0] = loss_avg10
+        malicious_structure5[iter][0] = loss_avg_5
+        malicious_structure10[iter][0] = loss_avg_10
 
 
         print('NO ATTACK ---> Round {:3d}, Average loss {:.3f}'.format(iter, loss_avg))
