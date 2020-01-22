@@ -15,7 +15,7 @@ import csv
 from utils.sampling import mnist_iid, mnist_noniid, cifar_iid
 from utils.options import args_parser
 from models.Update import LocalUpdate
-from models.Nets import MLP, CNNMnist, CNNCifar
+from models.Nets import MLP, CNNMnist, CNNCifar,customCNNCifar
 from models.Fed import FedAvg
 from models.test import test_img
 from collections import OrderedDict,defaultdict
@@ -37,9 +37,11 @@ if __name__ == '__main__':
         else:
             dict_users = mnist_noniid(dataset_train, args.num_users)
     elif args.dataset == 'cifar':
-        trans_cifar = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-        dataset_train = datasets.CIFAR10('data/cifar', train=True, download=True, transform=trans_cifar)
-        dataset_test = datasets.CIFAR10('data/cifar', train=False, download=True, transform=trans_cifar)
+        trans_cifar_train = transforms.Compose([transforms.RandomCrop(32,padding=4),transforms.RandomHorizontalFlip(),transforms.ToTensor(), transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))])
+        #trans_cifar_train = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5))])
+        trans_cifar_test = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.4914,0.4822,0.4465),(0.2023,0.1994,0.2010))])
+        dataset_train = datasets.CIFAR10('data/cifar', train=True, download=True, transform=trans_cifar_train)
+        dataset_test = datasets.CIFAR10('data/cifar', train=False, download=True, transform=trans_cifar_test)
         if args.iid:
             dict_users = cifar_iid(dataset_train, args.num_users)
         else:
@@ -48,7 +50,7 @@ if __name__ == '__main__':
         exit('Error: unrecognized dataset')
     img_size = dataset_train[0][0].shape
 
-    # build model
+    # build model 
     if args.model == 'cnn' and args.dataset == 'cifar':
         net_glob = CNNCifar(args=args).to(args.device)
     elif args.model == 'cnn' and args.dataset == 'mnist':
