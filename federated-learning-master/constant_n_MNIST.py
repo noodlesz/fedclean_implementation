@@ -383,7 +383,8 @@ if __name__ == '__main__':
     print("25 ATTACK DATA=",loss_train_25)
     print("30 ATTACK DATA=",loss_train_30)
 
-
+    print(malicious_dict)
+    print(malicious_count)
     # testing
     net_glob.eval()
     #print("Agent_Found_Count",agent_found_count)
