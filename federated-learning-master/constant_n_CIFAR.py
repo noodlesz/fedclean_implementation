@@ -52,16 +52,19 @@ if __name__ == '__main__':
 
     # build model 
     if args.model == 'cnn' and args.dataset == 'cifar':
-        net_glob = CNNCifar(args=args).to(args.device)
+        net_glob = customCNNCifar(args=args).to(args.device)
+        net_glob1 = customCNNCifar(args=args).to(args.device)
+        net_glob5 = customCNNCifar(args=args).to(args.device)
+        net_glob10 = customCNNCifar(args=args).to(args.device)
+        net_glob15 = customCNNCifar(args=args).to(args.device)
+        net_glob20 = customCNNCifar(args=args).to(args.device)
+        net_glob25 = customCNNCifar(args=args).to(args.device)
+        net_glob30 = customCNNCifar(args=args).to(args.device)
+
     elif args.model == 'cnn' and args.dataset == 'mnist':
         net_glob = CNNMnist(args=args).to(args.device)
-        net_glob1 = CNNMnist(args=args).to(args.device)
-        net_glob5 = CNNMnist(args=args).to(args.device)
-        net_glob10 = CNNMnist(args=args).to(args.device)
-        net_glob15 = CNNMnist(args=args).to(args.device)
-        net_glob20 = CNNMnist(args=args).to(args.device)
-        net_glob25 = CNNMnist(args=args).to(args.device)
-        net_glob30 = CNNMnist(args=args).to(args.device)
+
+
     elif args.model == 'mlp':
         len_in = 1
         for x in img_size:
@@ -438,7 +441,7 @@ if __name__ == '__main__':
     print("Testing accuracy (CONSTANT ATTACK 30): {:.2f}".format(acc_test30))
 
     #write to csv
-    with open("../MNIST_Results/benchmarks/n_constant_attack_data/constant_n_data.csv","w+") as csv_file:
+    with open("../CIFAR_Results/benchmarks/n_constant_attack_data/constant_n_data.csv_1","w+") as csv_file:
         my_writer = csv.writer(csv_file,delimiter=',')
         my_writer.writerow(("NUM_ATTACKS","TRAIN_ACCURACY","TEST_ACCURACY"))
         my_writer.writerow((0,acc_train.item(),acc_test.item()))
