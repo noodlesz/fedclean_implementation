@@ -240,14 +240,14 @@ if __name__ == '__main__':
                     noise_fc2_weight = Variable(w_glob1['fc2.weight'].data.new(w_glob1['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
                     noise_fc2_bias = Variable(w_glob1['fc2.bias'].data.new(w_glob1['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob1['conv1.weight']+=noise_conv1_weight
-                    w_glob1['conv1.bias']+=noise_conv1_bias
-                    w_glob1['conv2.weight']+=noise_conv2_weight
-                    w_glob1['conv2.bias']+=noise_conv2_bias
-                    w_glob1['fc1.weight']+=noise_fc1_weight
-                    w_glob1['fc1.bias']+=noise_fc1_bias
-                    w_glob1['fc2.weight']+=noise_fc2_weight
-                    w_glob1['fc2.bias']+=noise_fc2_bias
+                    w1['conv1.weight']+=noise_conv1_weight
+                    w1['conv1.bias']+=noise_conv1_bias
+                    w1['conv2.weight']+=noise_conv2_weight
+                    w1['conv2.bias']+=noise_conv2_bias
+                    w1['fc1.weight']+=noise_fc1_weight
+                    w1['fc1.bias']+=noise_fc1_bias
+                    w1['fc2.weight']+=noise_fc2_weight
+                    w1['fc2.bias']+=noise_fc2_bias
 
             if idx in fixed_agent_5:
                 malicious_count[5]+=1
@@ -282,14 +282,14 @@ if __name__ == '__main__':
                     noise_fc2_weight = Variable(w_glob5['fc2.weight'].data.new(w_glob5['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
                     noise_fc2_bias = Variable(w_glob5['fc2.bias'].data.new(w_glob5['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob5['conv1.weight']+=noise_conv1_weight
-                    w_glob5['conv1.bias']+=noise_conv1_bias
-                    w_glob5['conv2.weight']+=noise_conv2_weight
-                    w_glob5['conv2.bias']+=noise_conv2_bias
-                    w_glob5['fc1.weight']+=noise_fc1_weight
-                    w_glob5['fc1.bias']+=noise_fc1_bias
-                    w_glob5['fc2.weight']+=noise_fc2_weight
-                    w_glob5['fc2.bias']+=noise_fc2_bias
+                    w5['conv1.weight']+=noise_conv1_weight
+                    w5['conv1.bias']+=noise_conv1_bias
+                    w5['conv2.weight']+=noise_conv2_weight
+                    w5['conv2.bias']+=noise_conv2_bias
+                    w5['fc1.weight']+=noise_fc1_weight
+                    w5['fc1.bias']+=noise_fc1_bias
+                    w5['fc2.weight']+=noise_fc2_weight
+                    w5['fc2.bias']+=noise_fc2_bias
 
             if idx in fixed_agent_10:
                 malicious_count[10]+=1
@@ -324,14 +324,14 @@ if __name__ == '__main__':
                     noise_fc2_weight = Variable(w_glob10['fc2.weight'].data.new(w_glob10['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
                     noise_fc2_bias = Variable(w_glob10['fc2.bias'].data.new(w_glob10['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob10['conv1.weight']+=noise_conv1_weight
-                    w_glob10['conv1.bias']+=noise_conv1_bias
-                    w_glob10['conv2.weight']+=noise_conv2_weight
-                    w_glob10['conv2.bias']+=noise_conv2_bias
-                    w_glob10['fc1.weight']+=noise_fc1_weight
-                    w_glob10['fc1.bias']+=noise_fc1_bias
-                    w_glob10['fc2.weight']+=noise_fc2_weight
-                    w_glob10['fc2.bias']+=noise_fc2_bias
+                    w10['conv1.weight']+=noise_conv1_weight
+                    w10['conv1.bias']+=noise_conv1_bias
+                    w10['conv2.weight']+=noise_conv2_weight
+                    w10['conv2.bias']+=noise_conv2_bias
+                    w10['fc1.weight']+=noise_fc1_weight
+                    w10['fc1.bias']+=noise_fc1_bias
+                    w10['fc2.weight']+=noise_fc2_weight
+                    w10['fc2.bias']+=noise_fc2_bias
 
             if idx in fixed_agent_15:
                 malicious_count[15]+=1
@@ -366,14 +366,14 @@ if __name__ == '__main__':
                     noise_fc2_weight = Variable(w_glob15['fc2.weight'].data.new(w_glob15['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
                     noise_fc2_bias = Variable(w_glob15['fc2.bias'].data.new(w_glob15['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob15['conv1.weight']+=noise_conv1_weight
-                    w_glob15['conv1.bias']+=noise_conv1_bias
-                    w_glob15['conv2.weight']+=noise_conv2_weight
-                    w_glob15['conv2.bias']+=noise_conv2_bias
-                    w_glob15['fc1.weight']+=noise_fc1_weight
-                    w_glob15['fc1.bias']+=noise_fc1_bias
-                    w_glob15['fc2.weight']+=noise_fc2_weight
-                    w_glob15['fc2.bias']+=noise_fc2_bias
+                    w15['conv1.weight']+=noise_conv1_weight
+                    w15['conv1.bias']+=noise_conv1_bias
+                    w15['conv2.weight']+=noise_conv2_weight
+                    w15['conv2.bias']+=noise_conv2_bias
+                    w15['fc1.weight']+=noise_fc1_weight
+                    w15['fc1.bias']+=noise_fc1_bias
+                    w15['fc2.weight']+=noise_fc2_weight
+                    w15['fc2.bias']+=noise_fc2_bias
 
             if idx in fixed_agent_20:
                 malicious_count[20]+=1
@@ -408,14 +408,14 @@ if __name__ == '__main__':
                     noise_fc2_weight = Variable(w_glob20['fc2.weight'].data.new(w_glob20['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
                     noise_fc2_bias = Variable(w_glob20['fc2.bias'].data.new(w_glob20['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob20['conv1.weight']+=noise_conv1_weight
-                    w_glob20['conv1.bias']+=noise_conv1_bias
-                    w_glob20['conv2.weight']+=noise_conv2_weight
-                    w_glob20['conv2.bias']+=noise_conv2_bias
-                    w_glob20['fc1.weight']+=noise_fc1_weight
-                    w_glob20['fc1.bias']+=noise_fc1_bias
-                    w_glob20['fc2.weight']+=noise_fc2_weight
-                    w_glob20['fc2.bias']+=noise_fc2_bias
+                    w20['conv1.weight']+=noise_conv1_weight
+                    w20['conv1.bias']+=noise_conv1_bias
+                    w20['conv2.weight']+=noise_conv2_weight
+                    w20['conv2.bias']+=noise_conv2_bias
+                    w20['fc1.weight']+=noise_fc1_weight
+                    w20['fc1.bias']+=noise_fc1_bias
+                    w20['fc2.weight']+=noise_fc2_weight
+                    w20['fc2.bias']+=noise_fc2_bias
 
             if idx in fixed_agent_25:
                 malicious_count[25]+=1
@@ -449,14 +449,14 @@ if __name__ == '__main__':
                     noise_fc2_weight = Variable(w_glob25['fc2.weight'].data.new(w_glob25['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
                     noise_fc2_bias = Variable(w_glob25['fc2.bias'].data.new(w_glob25['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob25['conv1.weight']+=noise_conv1_weight
-                    w_glob25['conv1.bias']+=noise_conv1_bias
-                    w_glob25['conv2.weight']+=noise_conv2_weight
-                    w_glob25['conv2.bias']+=noise_conv2_bias
-                    w_glob25['fc1.weight']+=noise_fc1_weight
-                    w_glob25['fc1.bias']+=noise_fc1_bias
-                    w_glob25['fc2.weight']+=noise_fc2_weight
-                    w_glob25['fc2.bias']+=noise_fc2_bias
+                    w25['conv1.weight']+=noise_conv1_weight
+                    w25['conv1.bias']+=noise_conv1_bias
+                    w25['conv2.weight']+=noise_conv2_weight
+                    w25['conv2.bias']+=noise_conv2_bias
+                    w25['fc1.weight']+=noise_fc1_weight
+                    w25['fc1.bias']+=noise_fc1_bias
+                    w25['fc2.weight']+=noise_fc2_weight
+                    w25['fc2.bias']+=noise_fc2_bias
 
             if idx in fixed_agent_30:
                 malicious_count[30]+=1
@@ -492,14 +492,14 @@ if __name__ == '__main__':
                     noise_fc2_weight = Variable(w_glob30['fc2.weight'].data.new(w_glob30['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
                     noise_fc2_bias = Variable(w_glob30['fc2.bias'].data.new(w_glob30['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob30['conv1.weight']+=noise_conv1_weight
-                    w_glob30['conv1.bias']+=noise_conv1_bias
-                    w_glob30['conv2.weight']+=noise_conv2_weight
-                    w_glob30['conv2.bias']+=noise_conv2_bias
-                    w_glob30['fc1.weight']+=noise_fc1_weight
-                    w_glob30['fc1.bias']+=noise_fc1_bias
-                    w_glob30['fc2.weight']+=noise_fc2_weight
-                    w_glob30['fc2.bias']+=noise_fc2_bias
+                    w30['conv1.weight']+=noise_conv1_weight
+                    w30['conv1.bias']+=noise_conv1_bias
+                    w30['conv2.weight']+=noise_conv2_weight
+                    w30['conv2.bias']+=noise_conv2_bias
+                    w30['fc1.weight']+=noise_fc1_weight
+                    w30['fc1.bias']+=noise_fc1_bias
+                    w30['fc2.weight']+=noise_fc2_weight
+                    w30['fc2.bias']+=noise_fc2_bias
 
 
 
