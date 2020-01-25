@@ -456,7 +456,7 @@ if __name__ == '__main__':
                     w25['fc1.weight']=w_glob25['fc1.weight']+noise_fc1_weight
                     w25['fc1.bias']=w_glob25['fc1.bias']+noise_fc1_bias
                     w25['fc2.weight']=w_glob25['fc2.weight']+noise_fc2_weight
-                    w225['fc2.bias']=w_glob25['fc2.bias']+noise_fc2_bias
+                    w25['fc2.bias']=w_glob25['fc2.bias']+noise_fc2_bias
 
 
             if idx in fixed_agent_30:
