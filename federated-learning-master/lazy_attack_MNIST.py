@@ -20,6 +20,7 @@ from models.Fed import FedAvg
 from models.test import test_img
 from collections import OrderedDict,defaultdict
 
+from torch.autograd import Variable
 
 if __name__ == '__main__':
     # parse args
@@ -209,45 +210,82 @@ if __name__ == '__main__':
 
             if idx==fixed_agent_1:
                 malicious_count[1]+=1
-                #ADD Gaussian Noise
-                w1 = copy.deepcopy(fixed_agent_storage_1)
-          
+                    #ADD Gaussian Noise
+                #update w1
 
             if idx in fixed_agent_5:
                 malicious_count[5]+=1
                 #Add Gaussian Noise
-                w5 = copy.deepcopy(fixed_agent_storage_mapping_5[idx])
-
+                #update w5
 
             if idx in fixed_agent_10:
                 malicious_count[10]+=1
                 #Add Gaussian Noise
-                w10 = copy.deepcopy(fixed_agent_storage_mapping_10[idx])
-
+                #update w10
 
             if idx in fixed_agent_15:
                 malicious_count[15]+=1
                 #Add Gaussian Noise
-                w15 = copy.deepcopy(fixed_agent_storage_mapping_15[idx])
-
+                #update w15
 
             if idx in fixed_agent_20:
                 malicious_count[20]+=1
                 #Add Gaussian Noise
-                w20 = copy.deepcopy(fixed_agent_storage_mapping_20[idx])
-
+                #update 20
 
             if idx in fixed_agent_25:
                 malicious_count[25]+=1
                 #Add Gaussian noise
-                w25 = copy.deepcopy(fixed_agent_storage_mapping_25[idx])
-
+                #update 25
 
             if idx in fixed_agent_30:
                 malicious_count[30]+=1
-                #Add Gaussian noise
-                w30 = copy.deepcopy(fixed_agent_storage_mapping_30[idx])
+                #orig_glob = copy.deepcopy(w_glob)
+                if w_glob:
+                    conv_1_weight_mean = w_glob['conv1.weight'].mean()
+                    conv_1_weight_std = w_glob['conv1.weight'].std()
+                    conv_1_bias_mean = w_glob['conv1.bias'].mean()
+                    conv_1_bias_std = w_glob['conv1.bias'].std()
 
+                    conv_2_weight_mean = w_glob['conv2.weight'].mean()
+                    conv_2_weight_std = w_glob['conv2.weight'].std()
+                    conv_2_bias_mean = w_glob['conv2.bias'].mean()
+                    conv_2_bias_std = w_glob['conv2.bias'].std()
+
+                    fc1_weight_mean = w_glob['fc1.weight'].mean()
+                    fc1_weight_std = w_glob['fc1.weight'].std()
+                    fc1_bias_mean = w_glob['fc1.bias'].mean()
+                    fc1_bias_std = w_glob['fc1.bias'].std()
+
+                    fc2_weight_mean = w_glob['fc2.weight'].mean()
+                    fc2_weight_std = w_glob['fc2.weight'].std()
+                    fc2_bias_mean = w_glob['fc2.bias'].mean()
+                    fc2_bias_std = w_glob['fc2.bias'].std()
+                    
+
+                    noise_conv1_weight = Variable(w_glob['conv1.weight'].data.new(w_glob['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
+                    noise_conv1_bias = Variable(w_glob['conv1.bias'].data.new(w_glob['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
+                    noise_conv2_weight =  Variable(w_glob['conv2.weight'].data.new(w_glob['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
+                    noise_conv2_bias =  Variable(w_glob['conv2.bias'].data.new(w_glob['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
+                    noise_fc1_weight = Variable(w_glob['fc1.weight'].data.new(w_glob['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
+                    noise_fc1_bias = Variable(w_glob['fc1.bias'].data.new(w_glob['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
+                    noise_fc2_weight = Variable(w_glob['fc2.weight'].data.new(w_glob['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
+                    noise_fc2_bias = Variable(w_glob['fc2.bias'].data.new(w_glob['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
+
+                    w_glob['conv1.weight']+=noise_conv1_weight
+                    w_glob['conv1.bias']+=noise_conv1_bias
+                    w_glob['conv2.weight']+=noise_conv2_weight
+                    w_glob['conv2.bias']+=noise_conv2_bias
+                    w_glob['fc1.weight']+=noise_fc1_weight
+                    w_glob['fc1.bias']+=noise_fc1_bias
+                    w_glob['fc2.weight']+=noise_fc2_weight
+                    w_glob['fc2.bias']+=noise_fc2_bias
+
+                    #w_glob = w_glob + noise
+                    #print(w_glob['conv1.weight']-orig_glob['conv1.weight'])
+
+                #Add Gaussian noise
+                #update 30
 
 
             #NO ATTACK
@@ -292,7 +330,6 @@ if __name__ == '__main__':
         w_glob_25 = FedAvg(w_locals_25)
         w_glob_30 = FedAvg(w_locals_30)
 
-        print(w_glob)
 
         # copy weight to net_glob
         net_glob.load_state_dict(w_glob)
