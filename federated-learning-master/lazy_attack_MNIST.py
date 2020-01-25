@@ -209,7 +209,7 @@ if __name__ == '__main__':
 
 
             if idx==fixed_agent_1:
-                if w_glob_1:
+                if w_glob1:
                     conv_1_weight_mean = w_glob_1['conv1.weight'].mean()
                     conv_1_weight_std = w_glob_1['conv1.weight'].std()
                     conv_1_bias_mean = w_glob_1['conv1.bias'].mean()
@@ -251,7 +251,7 @@ if __name__ == '__main__':
 
             if idx in fixed_agent_5:
                 malicious_count[5]+=1
-                if w_glob_5:
+                if w_glob5:
                     conv_1_weight_mean = w_glob_5['conv1.weight'].mean()
                     conv_1_weight_std = w_glob_5['conv1.weight'].std()
                     conv_1_bias_mean = w_glob_5['conv1.bias'].mean()
@@ -293,7 +293,7 @@ if __name__ == '__main__':
 
             if idx in fixed_agent_10:
                 malicious_count[10]+=1
-                if w_glob_10:
+                if w_glob10:
                     conv_1_weight_mean = w_glob_10['conv1.weight'].mean()
                     conv_1_weight_std = w_glob_10['conv1.weight'].std()
                     conv_1_bias_mean = w_glob_10['conv1.bias'].mean()
@@ -335,7 +335,7 @@ if __name__ == '__main__':
 
             if idx in fixed_agent_15:
                 malicious_count[15]+=1
-                if w_glob_15:
+                if w_glob15:
                     conv_1_weight_mean = w_glob_15['conv1.weight'].mean()
                     conv_1_weight_std = w_glob_15['conv1.weight'].std()
                     conv_1_bias_mean = w_glob_15['conv1.bias'].mean()
@@ -377,7 +377,7 @@ if __name__ == '__main__':
 
             if idx in fixed_agent_20:
                 malicious_count[20]+=1
-                if w_glob_20:
+                if w_glob20:
                     conv_1_weight_mean = w_glob_20['conv1.weight'].mean()
                     conv_1_weight_std = w_glob_20['conv1.weight'].std()
                     conv_1_bias_mean = w_glob_20['conv1.bias'].mean()
@@ -419,7 +419,7 @@ if __name__ == '__main__':
 
             if idx in fixed_agent_25:
                 malicious_count[25]+=1
-                if w_glob_25:
+                if w_glob25:
                     conv_1_weight_mean = w_glob_25['conv1.weight'].mean()
                     conv_1_weight_std = w_glob_25['conv1.weight'].std()
                     conv_1_bias_mean = w_glob_25['conv1.bias'].mean()
@@ -462,7 +462,7 @@ if __name__ == '__main__':
             if idx in fixed_agent_30:
                 malicious_count[30]+=1
                 #orig_glob = copy.deepcopy(w_glob)
-                if w_glob_30:
+                if w_glob30:
                     conv_1_weight_mean = w_glob_30['conv1.weight'].mean()
                     conv_1_weight_std = w_glob_30['conv1.weight'].std()
                     conv_1_bias_mean = w_glob_30['conv1.bias'].mean()
