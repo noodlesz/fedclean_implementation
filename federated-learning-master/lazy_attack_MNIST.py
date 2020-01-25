@@ -539,24 +539,24 @@ if __name__ == '__main__':
 
         # update global weights
         w_glob = FedAvg(w_locals)
-        w_glob_1 = FedAvg(w_locals_1)
-        w_glob_5 = FedAvg(w_locals_5)
-        w_glob_10 = FedAvg(w_locals_10)
-        w_glob_15 = FedAvg(w_locals_15)
-        w_glob_20 = FedAvg(w_locals_20)
-        w_glob_25 = FedAvg(w_locals_25)
-        w_glob_30 = FedAvg(w_locals_30)
+        w_glob1 = FedAvg(w_locals_1)
+        w_glob5 = FedAvg(w_locals_5)
+        w_glob10 = FedAvg(w_locals_10)
+        w_glob15 = FedAvg(w_locals_15)
+        w_glob20 = FedAvg(w_locals_20)
+        w_glob25 = FedAvg(w_locals_25)
+        w_glob30 = FedAvg(w_locals_30)
 
 
         # copy weight to net_glob
         net_glob.load_state_dict(w_glob)
-        net_glob1.load_state_dict(w_glob_1)
-        net_glob5.load_state_dict(w_glob_5)
-        net_glob10.load_state_dict(w_glob_10)
-        net_glob15.load_state_dict(w_glob_15)
-        net_glob20.load_state_dict(w_glob_20)
-        net_glob25.load_state_dict(w_glob_25)
-        net_glob30.load_state_dict(w_glob_30)
+        net_glob1.load_state_dict(w_glob1)
+        net_glob5.load_state_dict(w_glob5)
+        net_glob10.load_state_dict(w_glob10)
+        net_glob15.load_state_dict(w_glob15)
+        net_glob20.load_state_dict(w_glob20)
+        net_glob25.load_state_dict(w_glob25)
+        net_glob30.load_state_dict(w_glob30)
 
         # print loss
         loss_avg = sum(loss_locals) / len(loss_locals)
