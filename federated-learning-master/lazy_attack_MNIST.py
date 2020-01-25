@@ -210,297 +210,297 @@ if __name__ == '__main__':
 
             if idx==fixed_agent_1:
                 if w_glob1:
-                    conv_1_weight_mean = w_glob_1['conv1.weight'].mean()
-                    conv_1_weight_std = w_glob_1['conv1.weight'].std()
-                    conv_1_bias_mean = w_glob_1['conv1.bias'].mean()
-                    conv_1_bias_std = w_glob_1['conv1.bias'].std()
+                    conv_1_weight_mean = w_glob1['conv1.weight'].mean()
+                    conv_1_weight_std = w_glob1['conv1.weight'].std()
+                    conv_1_bias_mean = w_glob1['conv1.bias'].mean()
+                    conv_1_bias_std = w_glob1['conv1.bias'].std()
 
-                    conv_2_weight_mean = w_glob_1['conv2.weight'].mean()
-                    conv_2_weight_std = w_glob_1['conv2.weight'].std()
-                    conv_2_bias_mean = w_glob_1['conv2.bias'].mean()
-                    conv_2_bias_std = w_glob_1['conv2.bias'].std()
+                    conv_2_weight_mean = w_glob1['conv2.weight'].mean()
+                    conv_2_weight_std = w_glob1['conv2.weight'].std()
+                    conv_2_bias_mean = w_glob1['conv2.bias'].mean()
+                    conv_2_bias_std = w_glob1['conv2.bias'].std()
 
-                    fc1_weight_mean = w_glob_1['fc1.weight'].mean()
-                    fc1_weight_std = w_glob_1['fc1.weight'].std()
-                    fc1_bias_mean = w_glob_1['fc1.bias'].mean()
-                    fc1_bias_std = w_glob_1['fc1.bias'].std()
+                    fc1_weight_mean = w_glob1['fc1.weight'].mean()
+                    fc1_weight_std = w_glob1['fc1.weight'].std()
+                    fc1_bias_mean = w_glob1['fc1.bias'].mean()
+                    fc1_bias_std = w_glob1['fc1.bias'].std()
 
-                    fc2_weight_mean = w_glob_1['fc2.weight'].mean()
-                    fc2_weight_std = w_glob_1['fc2.weight'].std()
-                    fc2_bias_mean = w_glob_1['fc2.bias'].mean()
-                    fc2_bias_std = w_glob_1['fc2.bias'].std()
+                    fc2_weight_mean = w_glob1['fc2.weight'].mean()
+                    fc2_weight_std = w_glob1['fc2.weight'].std()
+                    fc2_bias_mean = w_glob1['fc2.bias'].mean()
+                    fc2_bias_std = w_glob1['fc2.bias'].std()
                     
 
-                    noise_conv1_weight = Variable(w_glob_1['conv1.weight'].data.new(w_glob_1['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
-                    noise_conv1_bias = Variable(w_glob_1['conv1.bias'].data.new(w_glob_1['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
-                    noise_conv2_weight =  Variable(w_glob_1['conv2.weight'].data.new(w_glob_1['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
-                    noise_conv2_bias =  Variable(w_glob_1['conv2.bias'].data.new(w_glob_1['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
-                    noise_fc1_weight = Variable(w_glob_1['fc1.weight'].data.new(w_glob_1['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
-                    noise_fc1_bias = Variable(w_glob_1['fc1.bias'].data.new(w_glob_1['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
-                    noise_fc2_weight = Variable(w_glob_1['fc2.weight'].data.new(w_glob_1['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
-                    noise_fc2_bias = Variable(w_glob_1['fc2.bias'].data.new(w_glob_1['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
+                    noise_conv1_weight = Variable(w_glob1['conv1.weight'].data.new(w_glob1['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
+                    noise_conv1_bias = Variable(w_glob1['conv1.bias'].data.new(w_glob1['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
+                    noise_conv2_weight =  Variable(w_glob1['conv2.weight'].data.new(w_glob1['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
+                    noise_conv2_bias =  Variable(w_glob1['conv2.bias'].data.new(w_glob1['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
+                    noise_fc1_weight = Variable(w_glob1['fc1.weight'].data.new(w_glob1['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
+                    noise_fc1_bias = Variable(w_glob1['fc1.bias'].data.new(w_glob1['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
+                    noise_fc2_weight = Variable(w_glob1['fc2.weight'].data.new(w_glob1['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
+                    noise_fc2_bias = Variable(w_glob1['fc2.bias'].data.new(w_glob1['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob_1['conv1.weight']+=noise_conv1_weight
-                    w_glob_1['conv1.bias']+=noise_conv1_bias
-                    w_glob_1['conv2.weight']+=noise_conv2_weight
-                    w_glob_1['conv2.bias']+=noise_conv2_bias
-                    w_glob_1['fc1.weight']+=noise_fc1_weight
-                    w_glob_1['fc1.bias']+=noise_fc1_bias
-                    w_glob_1['fc2.weight']+=noise_fc2_weight
-                    w_glob_1['fc2.bias']+=noise_fc2_bias
+                    w_glob1['conv1.weight']+=noise_conv1_weight
+                    w_glob1['conv1.bias']+=noise_conv1_bias
+                    w_glob1['conv2.weight']+=noise_conv2_weight
+                    w_glob1['conv2.bias']+=noise_conv2_bias
+                    w_glob1['fc1.weight']+=noise_fc1_weight
+                    w_glob1['fc1.bias']+=noise_fc1_bias
+                    w_glob1['fc2.weight']+=noise_fc2_weight
+                    w_glob1['fc2.bias']+=noise_fc2_bias
 
             if idx in fixed_agent_5:
                 malicious_count[5]+=1
                 if w_glob5:
-                    conv_1_weight_mean = w_glob_5['conv1.weight'].mean()
-                    conv_1_weight_std = w_glob_5['conv1.weight'].std()
-                    conv_1_bias_mean = w_glob_5['conv1.bias'].mean()
-                    conv_1_bias_std = w_glob_5['conv1.bias'].std()
+                    conv_1_weight_mean = w_glob5['conv1.weight'].mean()
+                    conv_1_weight_std = w_glob5['conv1.weight'].std()
+                    conv_1_bias_mean = w_glob5['conv1.bias'].mean()
+                    conv_1_bias_std = w_glob5['conv1.bias'].std()
 
-                    conv_2_weight_mean = w_glob_5['conv2.weight'].mean()
-                    conv_2_weight_std = w_glob_5['conv2.weight'].std()
-                    conv_2_bias_mean = w_glob_5['conv2.bias'].mean()
-                    conv_2_bias_std = w_glob_5['conv2.bias'].std()
+                    conv_2_weight_mean = w_glob5['conv2.weight'].mean()
+                    conv_2_weight_std = w_glob5['conv2.weight'].std()
+                    conv_2_bias_mean = w_glob5['conv2.bias'].mean()
+                    conv_2_bias_std = w_glob5['conv2.bias'].std()
 
-                    fc1_weight_mean = w_glob_5['fc1.weight'].mean()
-                    fc1_weight_std = w_glob_5['fc1.weight'].std()
-                    fc1_bias_mean = w_glob_5['fc1.bias'].mean()
-                    fc1_bias_std = w_glob_5['fc1.bias'].std()
+                    fc1_weight_mean = w_glob5['fc1.weight'].mean()
+                    fc1_weight_std = w_glob5['fc1.weight'].std()
+                    fc1_bias_mean = w_glob5['fc1.bias'].mean()
+                    fc1_bias_std = w_glob5['fc1.bias'].std()
 
-                    fc2_weight_mean = w_glob_5['fc2.weight'].mean()
-                    fc2_weight_std = w_glob_5['fc2.weight'].std()
-                    fc2_bias_mean = w_glob_5['fc2.bias'].mean()
-                    fc2_bias_std = w_glob_5['fc2.bias'].std()
+                    fc2_weight_mean = w_glob5['fc2.weight'].mean()
+                    fc2_weight_std = w_glob5['fc2.weight'].std()
+                    fc2_bias_mean = w_glob5['fc2.bias'].mean()
+                    fc2_bias_std = w_glob5['fc2.bias'].std()
                     
 
-                    noise_conv1_weight = Variable(w_glob_5['conv1.weight'].data.new(w_glob_5['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
-                    noise_conv1_bias = Variable(w_glob_5['conv1.bias'].data.new(w_glob_5['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
-                    noise_conv2_weight =  Variable(w_glob_5['conv2.weight'].data.new(w_glob_5['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
-                    noise_conv2_bias =  Variable(w_glob_5['conv2.bias'].data.new(w_glob_5['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
-                    noise_fc1_weight = Variable(w_glob_5['fc1.weight'].data.new(w_glob_5['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
-                    noise_fc1_bias = Variable(w_glob_5['fc1.bias'].data.new(w_glob_5['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
-                    noise_fc2_weight = Variable(w_glob_5['fc2.weight'].data.new(w_glob_5['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
-                    noise_fc2_bias = Variable(w_glob_5['fc2.bias'].data.new(w_glob_5['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
+                    noise_conv1_weight = Variable(w_glob5['conv1.weight'].data.new(w_glob5['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
+                    noise_conv1_bias = Variable(w_glob5['conv1.bias'].data.new(w_glob5['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
+                    noise_conv2_weight =  Variable(w_glob5['conv2.weight'].data.new(w_glob5['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
+                    noise_conv2_bias =  Variable(w_glob5['conv2.bias'].data.new(w_glob5['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
+                    noise_fc1_weight = Variable(w_glob5['fc1.weight'].data.new(w_glob5['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
+                    noise_fc1_bias = Variable(w_glob5['fc1.bias'].data.new(w_glob5['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
+                    noise_fc2_weight = Variable(w_glob5['fc2.weight'].data.new(w_glob5['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
+                    noise_fc2_bias = Variable(w_glob5['fc2.bias'].data.new(w_glob5['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob_5['conv1.weight']+=noise_conv1_weight
-                    w_glob_5['conv1.bias']+=noise_conv1_bias
-                    w_glob_5['conv2.weight']+=noise_conv2_weight
-                    w_glob_5['conv2.bias']+=noise_conv2_bias
-                    w_glob_5['fc1.weight']+=noise_fc1_weight
-                    w_glob_5['fc1.bias']+=noise_fc1_bias
-                    w_glob_5['fc2.weight']+=noise_fc2_weight
-                    w_glob_5['fc2.bias']+=noise_fc2_bias
+                    w_glob5['conv1.weight']+=noise_conv1_weight
+                    w_glob5['conv1.bias']+=noise_conv1_bias
+                    w_glob5['conv2.weight']+=noise_conv2_weight
+                    w_glob5['conv2.bias']+=noise_conv2_bias
+                    w_glob5['fc1.weight']+=noise_fc1_weight
+                    w_glob5['fc1.bias']+=noise_fc1_bias
+                    w_glob5['fc2.weight']+=noise_fc2_weight
+                    w_glob5['fc2.bias']+=noise_fc2_bias
 
             if idx in fixed_agent_10:
                 malicious_count[10]+=1
                 if w_glob10:
-                    conv_1_weight_mean = w_glob_10['conv1.weight'].mean()
-                    conv_1_weight_std = w_glob_10['conv1.weight'].std()
-                    conv_1_bias_mean = w_glob_10['conv1.bias'].mean()
-                    conv_1_bias_std = w_glob_10['conv1.bias'].std()
+                    conv_1_weight_mean = w_glob10['conv1.weight'].mean()
+                    conv_1_weight_std = w_glob10['conv1.weight'].std()
+                    conv_1_bias_mean = w_glob10['conv1.bias'].mean()
+                    conv_1_bias_std = w_glob10['conv1.bias'].std()
 
-                    conv_2_weight_mean = w_glob_10['conv2.weight'].mean()
-                    conv_2_weight_std = w_glob_10['conv2.weight'].std()
-                    conv_2_bias_mean = w_glob_10['conv2.bias'].mean()
-                    conv_2_bias_std = w_glob_10['conv2.bias'].std()
+                    conv_2_weight_mean = w_glob10['conv2.weight'].mean()
+                    conv_2_weight_std = w_glob10['conv2.weight'].std()
+                    conv_2_bias_mean = w_glob10['conv2.bias'].mean()
+                    conv_2_bias_std = w_glob10['conv2.bias'].std()
 
-                    fc1_weight_mean = w_glob_10['fc1.weight'].mean()
-                    fc1_weight_std = w_glob_10['fc1.weight'].std()
-                    fc1_bias_mean = w_glob_10['fc1.bias'].mean()
-                    fc1_bias_std = w_glob_10['fc1.bias'].std()
+                    fc1_weight_mean = w_glob10['fc1.weight'].mean()
+                    fc1_weight_std = w_glob10['fc1.weight'].std()
+                    fc1_bias_mean = w_glob10['fc1.bias'].mean()
+                    fc1_bias_std = w_glob10['fc1.bias'].std()
 
-                    fc2_weight_mean = w_glob_10['fc2.weight'].mean()
-                    fc2_weight_std = w_glob_10['fc2.weight'].std()
-                    fc2_bias_mean = w_glob_10['fc2.bias'].mean()
-                    fc2_bias_std = w_glob_10['fc2.bias'].std()
+                    fc2_weight_mean = w_glob10['fc2.weight'].mean()
+                    fc2_weight_std = w_glob10['fc2.weight'].std()
+                    fc2_bias_mean = w_glob10['fc2.bias'].mean()
+                    fc2_bias_std = w_glob10['fc2.bias'].std()
                     
 
-                    noise_conv1_weight = Variable(w_glob_10['conv1.weight'].data.new(w_glob_10['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
-                    noise_conv1_bias = Variable(w_glob_10['conv1.bias'].data.new(w_glob_10['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
-                    noise_conv2_weight =  Variable(w_glob_10['conv2.weight'].data.new(w_glob_10['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
-                    noise_conv2_bias =  Variable(w_glob_10['conv2.bias'].data.new(w_glob_10['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
-                    noise_fc1_weight = Variable(w_glob_10['fc1.weight'].data.new(w_glob_10['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
-                    noise_fc1_bias = Variable(w_glob_10['fc1.bias'].data.new(w_glob_10['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
-                    noise_fc2_weight = Variable(w_glob_10['fc2.weight'].data.new(w_glob_10['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
-                    noise_fc2_bias = Variable(w_glob_10['fc2.bias'].data.new(w_glob_10['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
+                    noise_conv1_weight = Variable(w_glob10['conv1.weight'].data.new(w_glob10['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
+                    noise_conv1_bias = Variable(w_glob10['conv1.bias'].data.new(w_glob10['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
+                    noise_conv2_weight =  Variable(w_glob10['conv2.weight'].data.new(w_glob10['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
+                    noise_conv2_bias =  Variable(w_glob10['conv2.bias'].data.new(w_glob10['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
+                    noise_fc1_weight = Variable(w_glob10['fc1.weight'].data.new(w_glob10['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
+                    noise_fc1_bias = Variable(w_glob10['fc1.bias'].data.new(w_glob10['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
+                    noise_fc2_weight = Variable(w_glob10['fc2.weight'].data.new(w_glob10['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
+                    noise_fc2_bias = Variable(w_glob10['fc2.bias'].data.new(w_glob10['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob_10['conv1.weight']+=noise_conv1_weight
-                    w_glob_10['conv1.bias']+=noise_conv1_bias
-                    w_glob_10['conv2.weight']+=noise_conv2_weight
-                    w_glob_10['conv2.bias']+=noise_conv2_bias
-                    w_glob_10['fc1.weight']+=noise_fc1_weight
-                    w_glob_10['fc1.bias']+=noise_fc1_bias
-                    w_glob_10['fc2.weight']+=noise_fc2_weight
-                    w_glob_10['fc2.bias']+=noise_fc2_bias
+                    w_glob10['conv1.weight']+=noise_conv1_weight
+                    w_glob10['conv1.bias']+=noise_conv1_bias
+                    w_glob10['conv2.weight']+=noise_conv2_weight
+                    w_glob10['conv2.bias']+=noise_conv2_bias
+                    w_glob10['fc1.weight']+=noise_fc1_weight
+                    w_glob10['fc1.bias']+=noise_fc1_bias
+                    w_glob10['fc2.weight']+=noise_fc2_weight
+                    w_glob10['fc2.bias']+=noise_fc2_bias
 
             if idx in fixed_agent_15:
                 malicious_count[15]+=1
                 if w_glob15:
-                    conv_1_weight_mean = w_glob_15['conv1.weight'].mean()
-                    conv_1_weight_std = w_glob_15['conv1.weight'].std()
-                    conv_1_bias_mean = w_glob_15['conv1.bias'].mean()
-                    conv_1_bias_std = w_glob_15['conv1.bias'].std()
+                    conv_1_weight_mean = w_glob15['conv1.weight'].mean()
+                    conv_1_weight_std = w_glob15['conv1.weight'].std()
+                    conv_1_bias_mean = w_glob15['conv1.bias'].mean()
+                    conv_1_bias_std = w_glob15['conv1.bias'].std()
 
-                    conv_2_weight_mean = w_glob_15['conv2.weight'].mean()
-                    conv_2_weight_std = w_glob_15['conv2.weight'].std()
-                    conv_2_bias_mean = w_glob_15['conv2.bias'].mean()
-                    conv_2_bias_std = w_glob_15['conv2.bias'].std()
+                    conv_2_weight_mean = w_glob15['conv2.weight'].mean()
+                    conv_2_weight_std = w_glob15['conv2.weight'].std()
+                    conv_2_bias_mean = w_glob15['conv2.bias'].mean()
+                    conv_2_bias_std = w_glob15['conv2.bias'].std()
 
-                    fc1_weight_mean = w_glob_15['fc1.weight'].mean()
-                    fc1_weight_std = w_glob_15['fc1.weight'].std()
-                    fc1_bias_mean = w_glob_15['fc1.bias'].mean()
-                    fc1_bias_std = w_glob_15['fc1.bias'].std()
+                    fc1_weight_mean = w_glob15['fc1.weight'].mean()
+                    fc1_weight_std = w_glob15['fc1.weight'].std()
+                    fc1_bias_mean = w_glob15['fc1.bias'].mean()
+                    fc1_bias_std = w_glob15['fc1.bias'].std()
 
-                    fc2_weight_mean = w_glob_15['fc2.weight'].mean()
-                    fc2_weight_std = w_glob_15['fc2.weight'].std()
-                    fc2_bias_mean = w_glob_15['fc2.bias'].mean()
-                    fc2_bias_std = w_glob_15['fc2.bias'].std()
+                    fc2_weight_mean = w_glob15['fc2.weight'].mean()
+                    fc2_weight_std = w_glob15['fc2.weight'].std()
+                    fc2_bias_mean = w_glob15['fc2.bias'].mean()
+                    fc2_bias_std = w_glob15['fc2.bias'].std()
                     
 
-                    noise_conv1_weight = Variable(w_glob_15['conv1.weight'].data.new(w_glob_15['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
-                    noise_conv1_bias = Variable(w_glob_15['conv1.bias'].data.new(w_glob_15['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
-                    noise_conv2_weight =  Variable(w_glob_15['conv2.weight'].data.new(w_glob_15['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
-                    noise_conv2_bias =  Variable(w_glob_15['conv2.bias'].data.new(w_glob_15['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
-                    noise_fc1_weight = Variable(w_glob_15['fc1.weight'].data.new(w_glob_15['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
-                    noise_fc1_bias = Variable(w_glob_15['fc1.bias'].data.new(w_glob_15['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
-                    noise_fc2_weight = Variable(w_glob_15['fc2.weight'].data.new(w_glob_15['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
-                    noise_fc2_bias = Variable(w_glob_15['fc2.bias'].data.new(w_glob_15['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
+                    noise_conv1_weight = Variable(w_glob15['conv1.weight'].data.new(w_glob15['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
+                    noise_conv1_bias = Variable(w_glob15['conv1.bias'].data.new(w_glob15['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
+                    noise_conv2_weight =  Variable(w_glob15['conv2.weight'].data.new(w_glob15['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
+                    noise_conv2_bias =  Variable(w_glob15['conv2.bias'].data.new(w_glob15['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
+                    noise_fc1_weight = Variable(w_glob15['fc1.weight'].data.new(w_glob15['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
+                    noise_fc1_bias = Variable(w_glob15['fc1.bias'].data.new(w_glob15['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
+                    noise_fc2_weight = Variable(w_glob15['fc2.weight'].data.new(w_glob15['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
+                    noise_fc2_bias = Variable(w_glob15['fc2.bias'].data.new(w_glob15['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob_15['conv1.weight']+=noise_conv1_weight
-                    w_glob_15['conv1.bias']+=noise_conv1_bias
-                    w_glob_15['conv2.weight']+=noise_conv2_weight
-                    w_glob_15['conv2.bias']+=noise_conv2_bias
-                    w_glob_15['fc1.weight']+=noise_fc1_weight
-                    w_glob_15['fc1.bias']+=noise_fc1_bias
-                    w_glob_15['fc2.weight']+=noise_fc2_weight
-                    w_glob_15['fc2.bias']+=noise_fc2_bias
+                    w_glob15['conv1.weight']+=noise_conv1_weight
+                    w_glob15['conv1.bias']+=noise_conv1_bias
+                    w_glob15['conv2.weight']+=noise_conv2_weight
+                    w_glob15['conv2.bias']+=noise_conv2_bias
+                    w_glob15['fc1.weight']+=noise_fc1_weight
+                    w_glob15['fc1.bias']+=noise_fc1_bias
+                    w_glob15['fc2.weight']+=noise_fc2_weight
+                    w_glob15['fc2.bias']+=noise_fc2_bias
 
             if idx in fixed_agent_20:
                 malicious_count[20]+=1
                 if w_glob20:
-                    conv_1_weight_mean = w_glob_20['conv1.weight'].mean()
-                    conv_1_weight_std = w_glob_20['conv1.weight'].std()
-                    conv_1_bias_mean = w_glob_20['conv1.bias'].mean()
-                    conv_1_bias_std = w_glob_20['conv1.bias'].std()
+                    conv_1_weight_mean = w_glob20['conv1.weight'].mean()
+                    conv_1_weight_std = w_glob20['conv1.weight'].std()
+                    conv_1_bias_mean = w_glob20['conv1.bias'].mean()
+                    conv_1_bias_std = w_glob20['conv1.bias'].std()
 
-                    conv_2_weight_mean = w_glob_20['conv2.weight'].mean()
-                    conv_2_weight_std = w_glob_20['conv2.weight'].std()
-                    conv_2_bias_mean = w_glob_20['conv2.bias'].mean()
-                    conv_2_bias_std = w_glob_20['conv2.bias'].std()
+                    conv_2_weight_mean = w_glob20['conv2.weight'].mean()
+                    conv_2_weight_std = w_glob20['conv2.weight'].std()
+                    conv_2_bias_mean = w_glob20['conv2.bias'].mean()
+                    conv_2_bias_std = w_glob20['conv2.bias'].std()
 
-                    fc1_weight_mean = w_glob_20['fc1.weight'].mean()
-                    fc1_weight_std = w_glob_20['fc1.weight'].std()
-                    fc1_bias_mean = w_glob_20['fc1.bias'].mean()
-                    fc1_bias_std = w_glob_20['fc1.bias'].std()
+                    fc1_weight_mean = w_glob20['fc1.weight'].mean()
+                    fc1_weight_std = w_glob20['fc1.weight'].std()
+                    fc1_bias_mean = w_glob20['fc1.bias'].mean()
+                    fc1_bias_std = w_glob20['fc1.bias'].std()
 
-                    fc2_weight_mean = w_glob_20['fc2.weight'].mean()
-                    fc2_weight_std = w_glob_20['fc2.weight'].std()
-                    fc2_bias_mean = w_glob_20['fc2.bias'].mean()
-                    fc2_bias_std = w_glob_20['fc2.bias'].std()
+                    fc2_weight_mean = w_glob20['fc2.weight'].mean()
+                    fc2_weight_std = w_glob20['fc2.weight'].std()
+                    fc2_bias_mean = w_glob20['fc2.bias'].mean()
+                    fc2_bias_std = w_glob20['fc2.bias'].std()
                     
 
-                    noise_conv1_weight = Variable(w_glob_20['conv1.weight'].data.new(w_glob_20['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
-                    noise_conv1_bias = Variable(w_glob_20['conv1.bias'].data.new(w_glob_20['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
-                    noise_conv2_weight =  Variable(w_glob_20['conv2.weight'].data.new(w_glob_20['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
-                    noise_conv2_bias =  Variable(w_glob_20['conv2.bias'].data.new(w_glob_20['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
-                    noise_fc1_weight = Variable(w_glob_20['fc1.weight'].data.new(w_glob_20['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
-                    noise_fc1_bias = Variable(w_glob_20['fc1.bias'].data.new(w_glob_20['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
-                    noise_fc2_weight = Variable(w_glob_20['fc2.weight'].data.new(w_glob_20['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
-                    noise_fc2_bias = Variable(w_glob_20['fc2.bias'].data.new(w_glob_20['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
+                    noise_conv1_weight = Variable(w_glob20['conv1.weight'].data.new(w_glob20['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
+                    noise_conv1_bias = Variable(w_glob20['conv1.bias'].data.new(w_glob20['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
+                    noise_conv2_weight =  Variable(w_glob20['conv2.weight'].data.new(w_glob20['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
+                    noise_conv2_bias =  Variable(w_glob20['conv2.bias'].data.new(w_glob20['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
+                    noise_fc1_weight = Variable(w_glob20['fc1.weight'].data.new(w_glob20['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
+                    noise_fc1_bias = Variable(w_glob20['fc1.bias'].data.new(w_glob20['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
+                    noise_fc2_weight = Variable(w_glob20['fc2.weight'].data.new(w_glob20['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
+                    noise_fc2_bias = Variable(w_glob20['fc2.bias'].data.new(w_glob20['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob_20['conv1.weight']+=noise_conv1_weight
-                    w_glob_20['conv1.bias']+=noise_conv1_bias
-                    w_glob_20['conv2.weight']+=noise_conv2_weight
-                    w_glob_20['conv2.bias']+=noise_conv2_bias
-                    w_glob_20['fc1.weight']+=noise_fc1_weight
-                    w_glob_20['fc1.bias']+=noise_fc1_bias
-                    w_glob_20['fc2.weight']+=noise_fc2_weight
-                    w_glob_20['fc2.bias']+=noise_fc2_bias
+                    w_glob20['conv1.weight']+=noise_conv1_weight
+                    w_glob20['conv1.bias']+=noise_conv1_bias
+                    w_glob20['conv2.weight']+=noise_conv2_weight
+                    w_glob20['conv2.bias']+=noise_conv2_bias
+                    w_glob20['fc1.weight']+=noise_fc1_weight
+                    w_glob20['fc1.bias']+=noise_fc1_bias
+                    w_glob20['fc2.weight']+=noise_fc2_weight
+                    w_glob20['fc2.bias']+=noise_fc2_bias
 
             if idx in fixed_agent_25:
                 malicious_count[25]+=1
                 if w_glob25:
-                    conv_1_weight_mean = w_glob_25['conv1.weight'].mean()
-                    conv_1_weight_std = w_glob_25['conv1.weight'].std()
-                    conv_1_bias_mean = w_glob_25['conv1.bias'].mean()
-                    conv_1_bias_std = w_glob_25['conv1.bias'].std()
+                    conv_1_weight_mean = w_glob25['conv1.weight'].mean()
+                    conv_1_weight_std = w_glob25['conv1.weight'].std()
+                    conv_1_bias_mean = w_glob25['conv1.bias'].mean()
+                    conv_1_bias_std = w_glob25['conv1.bias'].std()
 
-                    conv_2_weight_mean = w_glob_25['conv2.weight'].mean()
-                    conv_2_weight_std = w_glob_25['conv2.weight'].std()
-                    conv_2_bias_mean = w_glob_25['conv2.bias'].mean()
-                    conv_2_bias_std = w_glob_25['conv2.bias'].std()
+                    conv_2_weight_mean = w_glob25['conv2.weight'].mean()
+                    conv_2_weight_std = w_glob25['conv2.weight'].std()
+                    conv_2_bias_mean = w_glob25['conv2.bias'].mean()
+                    conv_2_bias_std = w_glob25['conv2.bias'].std()
 
-                    fc1_weight_mean = w_glob_25['fc1.weight'].mean()
-                    fc1_weight_std = w_glob_25['fc1.weight'].std()
-                    fc1_bias_mean = w_glob_25['fc1.bias'].mean()
-                    fc1_bias_std = w_glob_25['fc1.bias'].std()
+                    fc1_weight_mean = w_glob25['fc1.weight'].mean()
+                    fc1_weight_std = w_glob25['fc1.weight'].std()
+                    fc1_bias_mean = w_glob25['fc1.bias'].mean()
+                    fc1_bias_std = w_glob25['fc1.bias'].std()
 
-                    fc2_weight_mean = w_glob_25['fc2.weight'].mean()
-                    fc2_weight_std = w_glob_25['fc2.weight'].std()
-                    fc2_bias_mean = w_glob_25['fc2.bias'].mean()
-                    fc2_bias_std = w_glob_25['fc2.bias'].std()
+                    fc2_weight_mean = w_glob25['fc2.weight'].mean()
+                    fc2_weight_std = w_glob25['fc2.weight'].std()
+                    fc2_bias_mean = w_glob25['fc2.bias'].mean()
+                    fc2_bias_std = w_glob25['fc2.bias'].std()
                     
 
-                    noise_conv1_weight = Variable(w_glob_25['conv1.weight'].data.new(w_glob_25['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
-                    noise_conv1_bias = Variable(w_glob_25['conv1.bias'].data.new(w_glob_25['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
-                    noise_conv2_weight =  Variable(w_glob_25['conv2.weight'].data.new(w_glob_25['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
-                    noise_conv2_bias =  Variable(w_glob_25['conv2.bias'].data.new(w_glob_25['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
-                    noise_fc1_weight = Variable(w_glob_25['fc1.weight'].data.new(w_glob_25['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
-                    noise_fc1_bias = Variable(w_glob_25['fc1.bias'].data.new(w_glob_25['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
-                    noise_fc2_weight = Variable(w_glob_25['fc2.weight'].data.new(w_glob_25['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
-                    noise_fc2_bias = Variable(w_glob_25['fc2.bias'].data.new(w_glob_25['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
+                    noise_conv1_weight = Variable(w_glob25['conv1.weight'].data.new(w_glob25['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
+                    noise_conv1_bias = Variable(w_glob25['conv1.bias'].data.new(w_glob25['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
+                    noise_conv2_weight =  Variable(w_glob25['conv2.weight'].data.new(w_glob25['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
+                    noise_conv2_bias =  Variable(w_glob25['conv2.bias'].data.new(w_glob25['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
+                    noise_fc1_weight = Variable(w_glob25['fc1.weight'].data.new(w_glob25['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
+                    noise_fc1_bias = Variable(w_glob25['fc1.bias'].data.new(w_glob25['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
+                    noise_fc2_weight = Variable(w_glob25['fc2.weight'].data.new(w_glob25['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
+                    noise_fc2_bias = Variable(w_glob25['fc2.bias'].data.new(w_glob25['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob_25['conv1.weight']+=noise_conv1_weight
-                    w_glob_25['conv1.bias']+=noise_conv1_bias
-                    w_glob_25['conv2.weight']+=noise_conv2_weight
-                    w_glob_25['conv2.bias']+=noise_conv2_bias
-                    w_glob_25['fc1.weight']+=noise_fc1_weight
-                    w_glob_25['fc1.bias']+=noise_fc1_bias
-                    w_glob_25['fc2.weight']+=noise_fc2_weight
-                    w_glob_25['fc2.bias']+=noise_fc2_bias
+                    w_glob25['conv1.weight']+=noise_conv1_weight
+                    w_glob25['conv1.bias']+=noise_conv1_bias
+                    w_glob25['conv2.weight']+=noise_conv2_weight
+                    w_glob25['conv2.bias']+=noise_conv2_bias
+                    w_glob25['fc1.weight']+=noise_fc1_weight
+                    w_glob25['fc1.bias']+=noise_fc1_bias
+                    w_glob25['fc2.weight']+=noise_fc2_weight
+                    w_glob25['fc2.bias']+=noise_fc2_bias
 
             if idx in fixed_agent_30:
                 malicious_count[30]+=1
                 #orig_glob = copy.deepcopy(w_glob)
                 if w_glob30:
-                    conv_1_weight_mean = w_glob_30['conv1.weight'].mean()
-                    conv_1_weight_std = w_glob_30['conv1.weight'].std()
-                    conv_1_bias_mean = w_glob_30['conv1.bias'].mean()
-                    conv_1_bias_std = w_glob_30['conv1.bias'].std()
+                    conv_1_weight_mean = w_glob30['conv1.weight'].mean()
+                    conv_1_weight_std = w_glob30['conv1.weight'].std()
+                    conv_1_bias_mean = w_glob30['conv1.bias'].mean()
+                    conv_1_bias_std = w_glob30['conv1.bias'].std()
 
-                    conv_2_weight_mean = w_glob_30['conv2.weight'].mean()
-                    conv_2_weight_std = w_glob_30['conv2.weight'].std()
-                    conv_2_bias_mean = w_glob_30['conv2.bias'].mean()
-                    conv_2_bias_std = w_glob_30['conv2.bias'].std()
+                    conv_2_weight_mean = w_glob30['conv2.weight'].mean()
+                    conv_2_weight_std = w_glob30['conv2.weight'].std()
+                    conv_2_bias_mean = w_glob30['conv2.bias'].mean()
+                    conv_2_bias_std = w_glob30['conv2.bias'].std()
 
-                    fc1_weight_mean = w_glob_30['fc1.weight'].mean()
-                    fc1_weight_std = w_glob_30['fc1.weight'].std()
-                    fc1_bias_mean = w_glob_30['fc1.bias'].mean()
-                    fc1_bias_std = w_glob_30['fc1.bias'].std()
+                    fc1_weight_mean = w_glob30['fc1.weight'].mean()
+                    fc1_weight_std = w_glob30['fc1.weight'].std()
+                    fc1_bias_mean = w_glob30['fc1.bias'].mean()
+                    fc1_bias_std = w_glob30['fc1.bias'].std()
 
-                    fc2_weight_mean = w_glob_30['fc2.weight'].mean()
-                    fc2_weight_std = w_glob_30['fc2.weight'].std()
-                    fc2_bias_mean = w_glob_30['fc2.bias'].mean()
-                    fc2_bias_std = w_glob_30['fc2.bias'].std()
+                    fc2_weight_mean = w_glob30['fc2.weight'].mean()
+                    fc2_weight_std = w_glob30['fc2.weight'].std()
+                    fc2_bias_mean = w_glob30['fc2.bias'].mean()
+                    fc2_bias_std = w_glob30['fc2.bias'].std()
                     
 
-                    noise_conv1_weight = Variable(w_glob_30['conv1.weight'].data.new(w_glob_30['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
-                    noise_conv1_bias = Variable(w_glob_30['conv1.bias'].data.new(w_glob_30['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
-                    noise_conv2_weight =  Variable(w_glob_30['conv2.weight'].data.new(w_glob_30['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
-                    noise_conv2_bias =  Variable(w_glob_30['conv2.bias'].data.new(w_glob_30['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
-                    noise_fc1_weight = Variable(w_glob_30['fc1.weight'].data.new(w_glob_30['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
-                    noise_fc1_bias = Variable(w_glob_30['fc1.bias'].data.new(w_glob_30['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
-                    noise_fc2_weight = Variable(w_glob_30['fc2.weight'].data.new(w_glob_30['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
-                    noise_fc2_bias = Variable(w_glob_30['fc2.bias'].data.new(w_glob_30['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
+                    noise_conv1_weight = Variable(w_glob30['conv1.weight'].data.new(w_glob30['conv1.weight'].size()).normal_(conv_1_weight_mean,conv_1_weight_std))
+                    noise_conv1_bias = Variable(w_glob30['conv1.bias'].data.new(w_glob30['conv1.bias'].size()).normal_(conv_1_bias_mean,conv_1_bias_std))
+                    noise_conv2_weight =  Variable(w_glob30['conv2.weight'].data.new(w_glob30['conv2.weight'].size()).normal_(conv_2_weight_mean,conv_2_weight_std))
+                    noise_conv2_bias =  Variable(w_glob30['conv2.bias'].data.new(w_glob30['conv2.bias'].size()).normal_(conv_2_bias_mean,conv_2_bias_std))
+                    noise_fc1_weight = Variable(w_glob30['fc1.weight'].data.new(w_glob30['fc1.weight'].size()).normal_(fc1_weight_mean,fc1_weight_std))
+                    noise_fc1_bias = Variable(w_glob30['fc1.bias'].data.new(w_glob30['fc1.bias'].size()).normal_(fc1_bias_mean,fc1_bias_std))
+                    noise_fc2_weight = Variable(w_glob30['fc2.weight'].data.new(w_glob30['fc2.weight'].size()).normal_(fc2_weight_mean,fc2_weight_std))
+                    noise_fc2_bias = Variable(w_glob30['fc2.bias'].data.new(w_glob30['fc2.bias'].size()).normal_(fc2_bias_mean,fc2_bias_std))
 
-                    w_glob_30['conv1.weight']+=noise_conv1_weight
-                    w_glob_30['conv1.bias']+=noise_conv1_bias
-                    w_glob_30['conv2.weight']+=noise_conv2_weight
-                    w_glob_30['conv2.bias']+=noise_conv2_bias
-                    w_glob_30['fc1.weight']+=noise_fc1_weight
-                    w_glob_30['fc1.bias']+=noise_fc1_bias
-                    w_glob_30['fc2.weight']+=noise_fc2_weight
-                    w_glob_30['fc2.bias']+=noise_fc2_bias
+                    w_glob30['conv1.weight']+=noise_conv1_weight
+                    w_glob30['conv1.bias']+=noise_conv1_bias
+                    w_glob30['conv2.weight']+=noise_conv2_weight
+                    w_glob30['conv2.bias']+=noise_conv2_bias
+                    w_glob30['fc1.weight']+=noise_fc1_weight
+                    w_glob30['fc1.bias']+=noise_fc1_bias
+                    w_glob30['fc2.weight']+=noise_fc2_weight
+                    w_glob30['fc2.bias']+=noise_fc2_bias
 
 
 
